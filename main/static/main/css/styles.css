@@ -1,0 +1,179 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+nav {
+    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+}
+
+#menu-checkbox,
+.toggle {
+    display: none;
+}
+
+.menu {
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+
+.menu li a {
+    color: black;
+    text-decoration: none;
+    align-self: center;
+    font-size: 13px;
+    padding: 10px 15px;
+    transition: background .2s linear;
+}
+
+.menu li a:hover {
+    background: aquamarine;
+    border-radius: 3px;
+}
+
+.menu li a.logo {
+    font-size: 25px;
+    margin-right: 120px;
+}
+
+.menu li a.contacts {
+    margin-right: 30px;
+}
+.wrapper {
+    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+}
+.intro {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+.intro-img {
+    background-image: url("../images/doctors.jpg");
+    width: 600px;
+    height: 450px;
+}
+.intro .intro-text {
+    position: relative;
+    font-size: 42px;
+    right: 100px;
+    top: 100px;
+    color: black;
+}
+
+.intro-contacts {
+    position: relative;
+    top: 250px;
+    left: 450px;
+    display: inline;
+    justify-content: space-between;
+    padding: 30px 50px;
+}
+.intro-contacts-text {
+    background-color: aquamarine;
+    max-width: 256px;
+    border: solid 2px darkcyan;
+}
+
+@media screen and (max-width: 765px) {
+    .toggle {
+        clear: both;
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        line-height: 40px;
+        width: 100%;
+        color: black;
+        background: aquamarine;
+        transition: all .1s linear;
+    }
+
+    .toggle:hover {
+        background: darkcyan;
+    }
+
+    #menu-checkbox:checked + label .touch li {
+        opacity: 1;
+        visibility: visible;
+        transition: all .7s linear;
+    }
+
+    #menu-checkbox:checked + label .touch {
+        height: 350px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 0;
+        transition: height .3s linear;
+    }
+
+    .menu li {
+        display: flex;
+        align-self: center;
+        width: 95%;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .menu li a {
+        width: 95%;
+        text-align: center;
+        align-self: center;
+        align-content: center;
+    }
+
+    .menu li a.logo {
+        font-size: 21px;
+        margin-right: 0;
+    }
+
+    .menu li a.contacts {
+        margin-right: 0;
+    }
+
+    .intro{
+        margin-top: 0;
+        display: block;
+        max-width: 100%;
+    }
+    .intro-img{
+        background-position: bottom 450px right 50px;
+    }
+    .intro .intro-text {
+        position: relative;
+        font-size: 35px;
+        right: -10px;
+        top: 0;
+    }
+    .intro-contacts {
+        position: relative;
+        font-size: 17px;
+        left: 50px;
+        padding: 20px;
+    }
+    .intro-contacts-text i {
+        margin-right: 10px;
+    }
+    .intro-contacts-text p {
+        font-size: 13px;
+        margin-right: 0;
+    }
+}
