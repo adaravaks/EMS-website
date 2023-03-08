@@ -86,7 +86,23 @@ nav {
 .intro-contacts-text {
     background-color: aquamarine;
     max-width: 256px;
-    border: solid 2px darkcyan;
+}
+#map {
+    display: block;
+    align-self: center;
+    width: 1200px;
+    height: 600px;
+    padding: 3px;
+    margin: 2% auto 10% auto;
+    background-color: aquamarine;
+}
+.map {
+    display: flex;
+    align-items: center;
+}
+.footer {
+    background-color: #d5f8e5;
+    max-height: max-content;
 }
 
 @media screen and (max-width: 765px) {
