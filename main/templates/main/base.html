@@ -13,32 +13,37 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-<header>
+<header class="header">
     <nav>
         <input type="checkbox" id="menu-checkbox">
         <label for="menu-checkbox">
             <ul class="menu touch">
-                <li><a class="logo" href="{% url 'index' %}">ЭМР</a></li>
-                <li><a href="{% url 'about' %}">О нас</a></li>
-                <li><a href="{% url 'services' %}">Услуги</a></li>
-                <li><a href="{% url 'doctors' %}">Врачи</a></li>
-                <li><a href="{% url 'promorions' %}">Акции</a></li>
-                <li><a class="contacts" href="{% url 'contacts' %}">Контакты</a></li>
-                <li><a href="{% url 'reviews' %}">Отзывы</a></li>
-                <li><a href="{% url 'ass' %}">Жопа</a></li>
+                <li class="navbar-logo-li"><a href="{% url 'index' %}" class="navbar-logo-link">
+                    <img src="{% static 'main/images/logo.png' %}" class="navbar-logo" alt="Наш логотип">
+                </a></li>
+                <li><a href="{% url 'about' %}" class="navbar-text-link">О нас</a></li>
+                <li><a href="{% url 'services' %}" class="navbar-text-link">Услуги</a></li>
+                <li><a href="{% url 'doctors' %}" class="navbar-text-link">Врачи</a></li>
+                <li><a href="{% url 'promorions' %}" class="navbar-text-link">Акции</a></li>
+                <li><a href="{% url 'contacts' %}" class="navbar-text-link contacts">Контакты</a></li>
+                <li><a href="{% url 'reviews' %}" class="navbar-text-link">Отзывы</a></li>
+                <li><a href="{% url 'ass' %}" class="navbar-text-link">Жопа</a></li>
             </ul>
             <span class="toggle">☰</span>
         </label>
     </nav>
 </header>
 <main>
-    <section class="intro wrapper">
-        <div class="intro-img">
-            <p class="intro-text">Лечитесь<br>Дауны</p>
-            <div class="intro-contacts">
-                <p class="intro-contacts-text"><i class="fa-solid fa-phone"></i>7 123 456-78-90</p>
-                <p class="intro-contacts-text"><i class="fa-solid fa-location-dot"></i>Бердск, Новосибирская область</p>
-            </div>
+    <section aria-label="Main Carousel" class="carousel-section">
+        <div class="carousel" data-carousel data-auto-slide="true">
+            <button class="carousel-button prev" data-carousel-button="prev"><i class="fa-solid fa-chevron-left fa-5x"></i></button>
+            <button class="carousel-button next" data-carousel-button="next"><i class="fa-solid fa-chevron-right fa-5x"></i></button>
+            <ul data-slides>
+                <li class="slide" data-active><img src="{% static 'main/images/carousel/1.jpg' %}" alt="Одна из наших услуг"></li>
+                <li class="slide"><img src="{% static 'main/images/carousel/2.jpg' %}" alt="Одна из наших услуг"></li>
+                <li class="slide"><img src="{% static 'main/images/carousel/3.jpg' %}" alt="Одна из наших услуг"></li>
+                <li class="slide"><img src="{% static 'main/images/carousel/4.jpg' %}" alt="Одна из наших услуг"></li>
+            </ul>
         </div>
     </section>
 </main>
@@ -51,5 +56,6 @@
         <div id="map"></div>
     </div>
 </footer>
+<script src="{% static 'main/js/main-carousel.js' %}" type="text/javascript"></script>
 </body>
 </html>
