@@ -1,0 +1,63 @@
+@media screen and (max-width: 765px) {
+    .toggle {
+        position: absolute;
+        clear: both;
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        line-height: 40px;
+        width: 100%;
+        color: black;
+        border-radius: 0 0 70% 70%;
+        background: aquamarine;
+        transition: all .1s linear;
+        z-index: 2;
+    }
+
+    .toggle:hover {
+        background: #09f3bc;
+    }
+
+    #menu-checkbox:checked + label .touch li {
+        opacity: 1;
+        visibility: visible;
+        transition: all .7s linear;
+    }
+
+    #menu-checkbox:checked + label .touch {
+        height: 350px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 0;
+        transition: height .3s linear;
+    }
+
+    .menu li {
+        display: flex;
+        align-self: center;
+        width: 95%;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .menu li a {
+        width: 95%;
+        text-align: center;
+        align-self: center;
+        align-content: center;
+    }
+
+    .menu li a.logo {
+        font-size: 21px;
+        margin-right: 0;
+    }
+
+    .menu li a.contacts {
+        margin-right: 0;
+    }
+}

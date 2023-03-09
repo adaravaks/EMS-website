@@ -1,0 +1,60 @@
+.header{
+    background-color: #eafcf0;
+}
+
+nav {
+    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+}
+.navbar-logo {
+    width: 45px;
+    height: 45px;
+}
+#menu-checkbox,
+.toggle {
+    display: none;
+}
+
+.menu {
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+
+.menu li a {
+    color: black;
+    text-decoration: none;
+    align-self: center;
+    font-size: 13px;
+    padding: 10px 15px;
+    transition: all .9s linear;
+}
+
+.menu li a.navbar-text-link:hover {
+    background: rgba(5, 238, 181, 0.4);
+    border-radius: 35%;
+    transition: 0.3s;
+}
+.menu li.navbar-logo-li:hover {
+    background: rgba(5, 238, 181, 0.4);
+    border-radius: 35%;
+    transition: 0.3s;
+}
+.menu li.navbar-logo-li {
+    transition: all .9s linear;
+}
+
+.menu li a.logo {
+    font-size: 25px;
+    margin-right: 120px;
+}
+
+.menu li a.contacts {
+    margin-right: 30px;
+}
