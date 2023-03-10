@@ -2,3 +2,31 @@
     background-color: #eafcf0;
     max-height: max-content;
 }
+
+.footer-logo {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+    transition: all 0.7s linear;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    left: 50%;
+}
+
+.footer-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo:hover {
+    background: rgba(5, 238, 181, 0.15);
+    border-radius: 20%;
+    transition: 0.7s;
+}
+
+.footer-text {
+    font-size: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}

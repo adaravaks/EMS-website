@@ -4,7 +4,7 @@ from decouple import config
 
 def index(request):
     context = {
-        'title': 'Главная страница',
+        'title': 'ЭМР - эффективные медицинские решения',
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/index.html', context=context)

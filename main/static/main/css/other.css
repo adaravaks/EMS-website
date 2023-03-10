@@ -16,7 +16,7 @@ body, html {
     width: 1200px;
     height: 600px;
     padding: 3px;
-    margin: 2% auto 10% auto;
+    margin: 2% auto 1% auto;
     background-color: rgb(5, 238, 181);
 }
 
@@ -31,4 +31,25 @@ body, html {
 .map {
     display: flex;
     align-items: center;
+}
+
+#scroll-top-button {
+    opacity: 0; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: aquamarine; /* Set a background color */
+    color: black; /* Text color */
+    cursor: default; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    transition: all 0.3s linear;
+}
+
+#scroll-top-button:hover {
+    background-color: #09f3bc; /* Add a dark-grey background on hover */
 }

@@ -1,8 +1,18 @@
 @media screen and (max-width: 765px) {
+    .carousel {
+        height: 520px;
+    }
+    .carousel-button {
+        top: 35%;
+    }
+
     .carousel-button.prev {
         left: 20px;
 }
     .carousel-button.next {
         right: 20px;
+    }
+    .slide img {
+    height: auto;
     }
 }

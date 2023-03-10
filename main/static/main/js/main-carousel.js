@@ -29,4 +29,4 @@ function autoSlider() {
     slides.children[newIndex].dataset.active = true;
     delete activeSlide.dataset.active;
 }
-IntervalID = setInterval(autoSlider, 4000)
+IntervalID = setInterval(autoSlider, 3000)

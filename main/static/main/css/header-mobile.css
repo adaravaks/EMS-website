@@ -1,6 +1,5 @@
 @media screen and (max-width: 765px) {
     .toggle {
-        position: absolute;
         clear: both;
         display: block;
         text-align: center;
