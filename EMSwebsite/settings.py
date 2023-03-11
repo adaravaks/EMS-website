@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'Etc/GMT+7'
 
@@ -127,7 +127,7 @@ STATICFILES_DIR = []
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'main/static/main/media')  # Subject to change in future
+MEDIA_ROOT = os.path.join(BASE_DIR, 'main/media')
 MEDIA_URL = '/media/'
 
 INTERNAL_IPS = [

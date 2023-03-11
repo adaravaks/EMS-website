@@ -16,12 +16,13 @@ function init () {
                 coordinates: [54.764800, 83.093600]
             },
             properties: {
-                iconContent: 'Мы здесь!',
-                hintContent: 'Да-да, вот в этом самом здании!'
+                iconCaption: 'Мы здесь!',
+                hintContent: 'Да-да, вот в этом самом здании!',
             }
         }, {
-            preset: 'islands#blackStretchyIcon',
-            draggable: false
+            preset: 'islands#greenDotIconWithCaption',
+            draggable: false,
+            iconColor: '#04af86'
         });
 
     myMap.geoObjects

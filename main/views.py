@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from decouple import config
+from .models import Doctor, Review, Service
 
 
 def index(request):
@@ -64,3 +65,21 @@ def ass(request):
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/ass.html', context=context)
+
+
+def doctor(request, name_slug):
+    the_doctor = Doctor.objects.get(slug=name_slug)
+    their_services_raw = Doctor.services.through.objects.all()
+    their_services = []
+
+    for service in their_services_raw:
+        their_services.append(Service.objects.get(pk=service.service_id))
+
+    their_reviews = Review.objects.filter(doctor_mentioned=the_doctor.name)
+    context = {
+        'doctor': the_doctor,
+        'services': their_services,
+        'reviews': their_reviews,
+        'title': the_doctor.name
+    }
+    return render(request, 'main/doctor.html', context=context)

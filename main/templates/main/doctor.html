@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block yandex-map-apikey %}{{ yandex_map_apikey }}{% endblock %}
+
+
+{% block content %}
+    <h1>{{ doctor.name }}</h1>
+    <img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture">
+    <span>Специализация: {{ doctor.speciality }}</span><br>
+    <span>Стаж работы: {{ doctor.experience }}</span><br>
+    <span>Образование: {{ doctor.education }}</span><br>
+    <span>Повышение квалификации: {{ doctor.additional_qualification }}</span><br>
+    <div>
+        <p>Услуги доктора:</p>
+        <ul>
+            {% for service in services %}
+                <li><p>{{ service.name }}: {{ service.price }}</p></li>
+            {% endfor %}
+        </ul>
+        <span>Отзывы:</span>
+        <ul>
+            {% for review in reviews %}
+                <li><p>{{ review.author }}: {{ review.text }}</p></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
