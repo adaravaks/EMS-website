@@ -7,5 +7,12 @@
 
 
 {% block content %}
-<h1>Врачи</h1>
+    <h1>Наши врачи</h1>
+    <ul>
+        {% for doctor in doctors %}
+            <li><a href="{{ doctor.get_absolute_url }}">
+                <p>{{ doctor.name }}</p>
+            </a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}

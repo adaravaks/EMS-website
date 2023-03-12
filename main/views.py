@@ -28,9 +28,11 @@ def services(request):
 
 
 def doctors(request):
+    our_doctors = Doctor.objects.all()
     context = {
         'title': 'Наши врачи',
-        'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'doctors': our_doctors
     }
     return render(request, 'main/doctors.html', context=context)
 
@@ -80,6 +82,6 @@ def doctor(request, name_slug):
         'doctor': the_doctor,
         'services': their_services,
         'reviews': their_reviews,
-        'title': the_doctor.name
+        'title': f'ЭМР - {the_doctor.name}'
     }
     return render(request, 'main/doctor.html', context=context)

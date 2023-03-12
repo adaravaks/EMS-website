@@ -1,10 +1,11 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Service(models.Model):
     name = models.CharField('Название процедуры', max_length=300)
     price = models.IntegerField('Цена, руб.')
-    slug = models.SlugField('Ссылка, которая будет вести к услуге.Это поле заполняется само, не нужно его трогать. Вписав сюда что-то, вы ничего не испортите, но и лучше от этого не станет.', blank=True, allow_unicode=True)
+    slug = models.SlugField('Ссылка, которая будет вести к услуге. Это поле заполняется само, не нужно его трогать. Вписав сюда что-то, вы ничего не испортите, но и лучше от этого не станет.', blank=True, allow_unicode=True)
 
     def save(self, *args, **kwargs):
         self.slug = cyrillic_slugify(self.name)
@@ -26,11 +27,14 @@ class Doctor(models.Model):
     education = models.TextField('Образование')
     additional_qualification = models.TextField('Повышение квалификации', blank=True)
     services = models.ManyToManyField(Service, verbose_name='Услуги')
-    slug = models.SlugField('Ссылка, которая будет вести к врачу.Это поле заполняется само, не нужно его трогать. Вписав сюда что-то, вы ничего не испортите, но и лучше от этого не станет.', blank=True, allow_unicode=True)
+    slug = models.SlugField('Ссылка, которая будет вести к врачу. Это поле заполняется само, не нужно его трогать. Вписав сюда что-то, вы ничего не испортите, но и лучше от этого не станет.', blank=True, allow_unicode=True)
 
     def save(self, *args, **kwargs):
         self.slug = cyrillic_slugify(self.name)
         super(Doctor, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('doctor', kwargs={'name_slug': self.slug})
 
     def __str__(self):
         return self.name
@@ -48,6 +52,10 @@ class Review(models.Model):
 
     def __str__(self):
         return f'Отзыв - {self.doctor_mentioned}'
+
+    @staticmethod
+    def get_absolute_url():
+        return reverse('reviews')
 
     class Meta:
         verbose_name = 'Отзыв'
