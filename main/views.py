@@ -54,8 +54,10 @@ def contacts(request):
 
 
 def reviews(request):
+    our_reviews = Review.objects.all()
     context = {
         'title': 'Отзывы пациентов',
+        'reviews':our_reviews,
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/reviews.html', context=context)
@@ -82,6 +84,7 @@ def doctor(request, name_slug):
         'doctor': the_doctor,
         'services': their_services,
         'reviews': their_reviews,
-        'title': f'ЭМР - {the_doctor.name}'
+        'title': f'ЭМР - {the_doctor.name}',
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/doctor.html', context=context)

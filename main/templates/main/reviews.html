@@ -7,5 +7,19 @@
 
 
 {% block content %}
-<h1>Отзывы пациентов</h1>
+    <h1>Отзывы пациентов</h1>
+    {% if reviews %}
+        <ul>
+        {% for review in reviews %}
+            <li>
+                <p>Автор отзыва: {{ review.author }}</p>
+                <p>Врач: <a href="{{ review.doctor_mentioned.get_absolute_url }}">{{ review.doctor_mentioned }}</a></p>
+                <p>Отзыв: {{ review.text }}</p>
+                <p>Источник: <a href="{{ review.source }}">{{ review.source }}</a></p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Отзывов пока нет.</p>
+    {% endif %}
 {% endblock %}
