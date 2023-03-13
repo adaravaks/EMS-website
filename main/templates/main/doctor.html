@@ -21,13 +21,22 @@
             {% endfor %}
         </ul>
         <span>Отзывы:</span>
-        <ul>
-            {% for review in reviews %}
-                <li>
-                    <p>{{ review.author }}: {{ review.text }}</p>
-                    <p>Источник:<a href="{{ review.source }}">{{ review.source }}</a></p>
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="review-box">
+            {% if reviews %}
+                <div>
+                <ul class="review-list">
+                {% for review in reviews %}
+                    <li class="review-list-item">
+                        <p class="review-paragraph">Автор отзыва: {{ review.author }}</p>
+                        <p class="review-paragraph">Врач: <a href="{{ review.doctor_mentioned.get_absolute_url }}">{{ review.doctor_mentioned }}</a></p>
+                        <p class="review-paragraph">Отзыв: {{ review.text }}</p>
+                        <p class="review-paragraph">Источник: <a href="{{ review.source }}">{{ review.source }}</a></p>
+                    </li>
+                {% endfor %}
+                </ul></div>
+            {% else %}
+                <p>Отзывов пока нет</p>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
