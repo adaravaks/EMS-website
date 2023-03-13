@@ -17,13 +17,16 @@
         <p>Услуги доктора:</p>
         <ul>
             {% for service in services %}
-                <li><p>{{ service.name }}: {{ service.price }}</p></li>
+                <li><p><a href="{{ service.get_absolute_url }}">{{ service.name }}</a>: {{ service.price }}</p></li>
             {% endfor %}
         </ul>
         <span>Отзывы:</span>
         <ul>
             {% for review in reviews %}
-                <li><p>{{ review.author }}: {{ review.text }}</p></li>
+                <li>
+                    <p>{{ review.author }}: {{ review.text }}</p>
+                    <p>Источник:<a href="{{ review.source }}">{{ review.source }}</a></p>
+                </li>
             {% endfor %}
         </ul>
     </div>

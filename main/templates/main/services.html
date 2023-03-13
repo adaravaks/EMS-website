@@ -7,5 +7,19 @@
 
 
 {% block content %}
-<h1>Услуги и цены</h1>
+    <h1>Услуги и цены</h1>
+    {% if services %}
+        <ul>
+            {% for service in services %}
+                <p>Название: <a href="{{ service.get_absolute_url }}">{{ service.name }}</a></p>
+                <p>Цена: {{ service.price }}</p>
+                <p>Проводящие доктора:</p><ul>
+                {% for doctor in service.doctor_set.all %}
+                    <li><p><a href="{{ doctor.get_absolute_url }}">{{ doctor.name }}</a></p></li>
+                {% endfor %}</ul>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Услуги временно не оказываются</p>
+    {% endif %}
 {% endblock %}

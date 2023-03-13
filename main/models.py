@@ -11,6 +11,9 @@ class Service(models.Model):
         self.slug = cyrillic_slugify(self.name)
         super(Service, self).save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return reverse('service', kwargs={'service_slug': self.slug})
+
     def __str__(self):
         return self.name
 
@@ -51,7 +54,7 @@ class Review(models.Model):
     text = models.TextField('Отзыв')
 
     def __str__(self):
-        return f'Отзыв - {self.doctor_mentioned}'
+        return f'Отзыв на врача {self.doctor_mentioned} от пользователя {self.author}'
 
     @staticmethod
     def get_absolute_url():

@@ -20,19 +20,31 @@ def about(request):
 
 
 def services(request):
+    our_services = Service.objects.all()
     context = {
         'title': 'Услуги',
+        'services': our_services,
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/services.html', context=context)
+
+
+def service(request, service_slug):
+    service_requested = Service.objects.get(slug=service_slug)
+    context = {
+        'title': service_requested.name,
+        'service': service_requested,
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
+    }
+    return render(request, 'main/service.html', context=context)
 
 
 def doctors(request):
     our_doctors = Doctor.objects.all()
     context = {
         'title': 'Наши врачи',
-        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
-        'doctors': our_doctors
+        'doctors': our_doctors,
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/doctors.html', context=context)
 
