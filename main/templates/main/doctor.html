@@ -8,12 +8,11 @@
 
 {% block content %}
     <h1>{{ doctor.name }}</h1>
-    <img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture">
+    <img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture-single">
     <span>Специализация: {{ doctor.speciality }}</span><br>
     <span>Стаж работы: {{ doctor.experience }}</span><br>
     <span>Образование: {{ doctor.education }}</span><br>
     <span>Повышение квалификации: {{ doctor.additional_qualification }}</span><br>
-    <div>
         <p>Услуги доктора:</p>
         <ul>
             {% for service in services %}
@@ -23,7 +22,6 @@
         <span>Отзывы:</span>
         <div class="review-box">
             {% if reviews %}
-                <div>
                 <ul class="review-list">
                 {% for review in reviews %}
                     <li class="review-list-item">
@@ -33,10 +31,9 @@
                         <p class="review-paragraph">Источник: <a href="{{ review.source }}">{{ review.source }}</a></p>
                     </li>
                 {% endfor %}
-                </ul></div>
+                </ul>
             {% else %}
                 <p>Отзывов пока нет</p>
             {% endif %}
         </div>
-    </div>
 {% endblock %}

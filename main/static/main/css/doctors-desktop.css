@@ -1,0 +1,39 @@
+.doctor-picture {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.doctor-picture-single {
+    width: 500px;
+    height: auto;
+}
+
+.doctors-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.doctor-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #9bc7ef;
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.7s linear;
+}
+
+.doctor-link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.doctor-box:hover {
+    background-color: #75b1f5;
+    transition: all 0.3s linear;
+}

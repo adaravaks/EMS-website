@@ -85,7 +85,7 @@ def ass(request):
 
 def doctor(request, name_slug):
     the_doctor = Doctor.objects.get(slug=name_slug)
-    their_services_raw = Doctor.services.through.objects.all()
+    their_services_raw = the_doctor.services.through.objects.filter(doctor_id=the_doctor.pk)
     their_services = []
 
     for service in their_services_raw:

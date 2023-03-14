@@ -1,6 +1,6 @@
 {% extends 'main/base.html' %}
 {% block title %}
-{{ title }}
+    {{ title }}
 {% endblock %}
 
 {% block yandex-map-apikey %}{{ yandex_map_apikey }}{% endblock %}
@@ -8,15 +8,18 @@
 
 {% block content %}
     <h1>Наши врачи</h1>
-    <ul>
+    <div class="doctors-container">
         {% if doctors %}
             {% for doctor in doctors %}
-                <li><a href="{{ doctor.get_absolute_url }}">
+                <div class="doctor-box"><a href="{{ doctor.get_absolute_url }}" class="doctor-link">
+                    <img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture">
                     <p>{{ doctor.name }}</p>
-                </a></li>
+                    <p>{{ doctor.speciality }}</p>
+                    <p>Стаж: {{ doctor.experience }}</p>
+                </a></div>
             {% endfor %}
         {% else %}
             <p>Врачей временно нет</p>
         {% endif %}
-    </ul>
+    </div>
 {% endblock %}

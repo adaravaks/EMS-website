@@ -4,12 +4,15 @@
     font-family: 'Roboto Condensed', sans-serif;
     box-sizing: border-box;
 }
+
 *::before, *::after {
     box-sizing: border-box;
 }
+
 body, html {
     overflow-x: hidden;
 }
+
 #map {
     display: block;
     align-self: center;
@@ -52,9 +55,4 @@ body, html {
 
 #scroll-top-button:hover {
     background-color: #09f3bc;
-}
-
-.doctor-picture {
-    width: 300px;
-    height: 300px;
 }
