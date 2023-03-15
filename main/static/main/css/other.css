@@ -76,6 +76,14 @@ body, html {
     font-size: 18px;
 }
 
+.services-table-one-doctor {
+    background-color: black;
+    width: 50%;
+    position: relative;
+    left: 25%;
+    font-size: 18px;
+}
+
 .services-table-link {
     text-decoration: none;
     color: black;
@@ -101,6 +109,11 @@ body, html {
 .services-td {
     background-color: #eafcf0;
     padding: 10px;
+}
+
+.services-td-one-doctor {
+    background-color: #eafcf0;
+    padding: 20px;
 }
 
 .services-td li {

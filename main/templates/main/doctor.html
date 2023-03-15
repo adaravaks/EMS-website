@@ -14,11 +14,21 @@
     <span>Образование: {{ doctor.education }}</span><br>
     <span>Повышение квалификации: {{ doctor.additional_qualification }}</span><br>
         <p>Услуги доктора:</p>
-        <ul>
+        {% if services %}
+            <table class="services-table-one-doctor">
+        <tr>
+            <th class="services-th">Название</th>
+            <th class="services-th">Цена, руб</th>
+        </tr>
             {% for service in services %}
-                <li><p><a href="{{ service.get_absolute_url }}">{{ service.name }}</a>: {{ service.price }}</p></li>
+                <tr>
+                <td class="services-td-one-doctor"><p><a class="services-table-link" href="{{ service.get_absolute_url }}">{{ service.name }}</a></p></td>
+                <td class="services-td-one-doctor"><p>{{ service.price }}</p></td></tr>
             {% endfor %}
-        </ul>
+        </table>
+        {% else %}
+            <p>Доктор пока не оказывает услуг</p>
+        {% endif %}
         <span>Отзывы:</span>
         <div class="review-box">
             {% if reviews %}
