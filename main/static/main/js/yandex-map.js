@@ -13,7 +13,7 @@ function init () {
         myGeoObject = new ymaps.GeoObject({
             geometry: {
                 type: "Point",
-                coordinates: [54.764800, 83.093600]
+                coordinates: [54.764813, 83.09356]
             },
             properties: {
                 iconCaption: 'Мы здесь!',

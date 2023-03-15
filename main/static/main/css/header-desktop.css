@@ -39,9 +39,10 @@ nav {
 }
 
 .menu li a.navbar-text-link:hover {
-    background: rgba(117, 177, 245, 0.5);
+    background: rgba(117, 177, 245, 0.7);
     border-radius: 35%;
     transition: 0.3s;
+    color: white;
 }
 
 .menu li.navbar-logo-li:hover {

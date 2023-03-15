@@ -13,7 +13,7 @@ def index(request):
 
 def about(request):
     context = {
-        'title': 'О нас',
+        'title': 'ЭМР - о нас',
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/about-us.html', context=context)
@@ -22,7 +22,7 @@ def about(request):
 def services(request):
     our_services = Service.objects.all()
     context = {
-        'title': 'Услуги',
+        'title': 'ЭМР - услуги',
         'services': our_services,
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
@@ -32,7 +32,7 @@ def services(request):
 def service(request, service_slug):
     service_requested = Service.objects.get(slug=service_slug)
     context = {
-        'title': service_requested.name,
+        'title': f'ЭМР - {service_requested.name}',
         'service': service_requested,
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
@@ -42,7 +42,7 @@ def service(request, service_slug):
 def doctors(request):
     our_doctors = Doctor.objects.all()
     context = {
-        'title': 'Наши врачи',
+        'title': 'ЭМР - наши врачи',
         'doctors': our_doctors,
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
@@ -51,7 +51,7 @@ def doctors(request):
 
 def promotions(request):
     context = {
-        'title': 'Текущие акции',
+        'title': 'ЭМР - текущие акции',
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/promotions.html', context=context)
@@ -59,7 +59,7 @@ def promotions(request):
 
 def contacts(request):
     context = {
-        'title': 'Контакты',
+        'title': 'ЭМР - контакты',
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/contacts.html', context=context)
@@ -68,19 +68,19 @@ def contacts(request):
 def reviews(request):
     our_reviews = Review.objects.all()
     context = {
-        'title': 'Отзывы пациентов',
+        'title': 'ЭМР - отзывы пациентов',
         'reviews':our_reviews,
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/reviews.html', context=context)
 
 
-def ass(request):
+def papers(request):
     context = {
-        'title': 'ЖОПА',
+        'title': 'ЭМР - документы',
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
-    return render(request, 'main/ass.html', context=context)
+    return render(request, 'main/papers.html', context=context)
 
 
 def doctor(request, name_slug):

@@ -16,7 +16,7 @@ body, html {
 #map {
     display: block;
     align-self: center;
-    width: 1200px;
+    width: 1500px;
     height: 600px;
     padding: 3px;
     margin: 2% auto 1% auto;
@@ -55,4 +55,8 @@ body, html {
 
 #scroll-top-button:hover {
     background-color: #09f3bc;
+}
+
+.text-align-right {
+    text-align: right;
 }
