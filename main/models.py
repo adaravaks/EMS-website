@@ -66,4 +66,12 @@ class Review(models.Model):
 
 
 def cyrillic_slugify(string):
-    return string.strip().lower().replace(' ', '-')
+    list_of_words_raw = string.strip().split(' ')
+    list_of_words = []
+    for index in range(len(list_of_words_raw)):
+        if len(list_of_words_raw[index]) > 0:
+            list_of_words.append(list_of_words_raw[index])
+    func_slug = ''
+    for word in list_of_words:
+        func_slug += word + '-'
+    return func_slug.strip('-').lower()
