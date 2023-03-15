@@ -7,18 +7,24 @@
 
 
 {% block content %}
-    <h1>Услуги и цены</h1>
+    <h1 class="main-header">Услуги и цены</h1>
     {% if services %}
-        <ul>
+        <table class="services-table">
+        <tr>
+            <th class="services-th">Название</th>
+            <th class="services-th">Цена, руб</th>
+            <th class="services-th"><a class="services-table-link" href="{% url 'doctors' %}">Проводящие доктора</a></th>
+        </tr>
             {% for service in services %}
-                <p>Название: <a href="{{ service.get_absolute_url }}">{{ service.name }}</a></p>
-                <p>Цена: {{ service.price }}</p>
-                <p>Проводящие доктора:</p><ul>
+                <tr>
+                <td class="services-td"><p><a class="services-table-link" href="{{ service.get_absolute_url }}">{{ service.name }}</a></p></td>
+                <td class="services-td"><p>{{ service.price }}</p></td>
+                <td class="services-td"><ul style="list-style: none">
                 {% for doctor in service.doctor_set.all %}
-                    <li><p><a href="{{ doctor.get_absolute_url }}">{{ doctor.name }}</a></p></li>
-                {% endfor %}</ul>
+                    <li><p><a class="services-table-link" href="{{ doctor.get_absolute_url }}">{{ doctor.name }}</a></p></li>
+                {% endfor %}</ul></td></tr>
             {% endfor %}
-        </ul>
+        </table>
     {% else %}
         <p>Услуги временно не оказываются</p>
     {% endif %}

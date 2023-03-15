@@ -23,11 +23,18 @@ body, html {
     background-color: rgb(5, 238, 181);
 }
 
+.main-header {
+    padding: 15px;
+    width: 100%;
+    background-color: #dbf4fd;
+    margin-bottom: 30px;
+}
+
 .content {
     display: block;
     text-align: center;
     align-content: center;
-    margin-top: 200px;
+    margin-top: 100px;
     margin-bottom: 200px;
 }
 
@@ -59,4 +66,43 @@ body, html {
 
 .text-align-right {
     text-align: right;
+}
+
+.services-table {
+    background-color: black;
+    width: 80%;
+    position: relative;
+    left: 10%;
+    font-size: 18px;
+}
+
+.services-table-link {
+    text-decoration: none;
+    color: black;
+    background-color: aquamarine;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+}
+
+.services-table-link:hover {
+    background-color: #7fbbf5;
+    color: white;
+    transition: all 0.3s linear;
+}
+
+.services-th {
+    background-color: aquamarine;
+    padding: 15px;
+    transition: all 0.3s linear;
+    border-radius: 0 !important;
+}
+
+.services-td {
+    background-color: #eafcf0;
+    padding: 10px;
+}
+
+.services-td li {
+    margin: 15px;
 }
