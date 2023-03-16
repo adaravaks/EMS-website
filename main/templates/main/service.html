@@ -8,15 +8,19 @@
 
 {% block content %}
     <h1 class="main-header">{{ service.name }}</h1>
-    <p>{{ service.name }} в нашей клинике стоит {{ service.price }} рублей</p>
-    <p>Врачи, проводящие процедуру:</p>
+    <p style="margin-bottom: 30px; margin-top: 30px;">{{ service.name }} в нашей клинике стоит {{ service.price }} рублей</p>
     <ul>
         {% if service.doctor_set %}
+            <table class="services-table">
+        <tr>
+            <th class="services-th"><a class="services-table-link" href="{% url 'doctors' %}">Проводящие процедуру доктора</a></th>
+        </tr>
+            <tr>
+            <td class="services-td"><ul style="list-style: none">
             {% for doctor in service.doctor_set.all %}
-                <li>
-                    <p><a href="{{ doctor.get_absolute_url }}">{{ doctor.name }}</a></p>
-                </li>
-            {% endfor %}
+                <li class="list-item-mobile"><div class="table-button-mobile"><p><a class="services-table-link" href="{{ doctor.get_absolute_url }}">{{ doctor.name }}</a></p></div></li>
+            {% endfor %}</ul></td></tr>
+        </table>
         {% else %}
             <li>
                 <p>Эту процедуру временно никто не проводит</p>

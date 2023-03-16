@@ -1,0 +1,52 @@
+@media screen and (max-width: 765px) {
+    .services-table {
+        width: 90%;
+        left: 5%;
+        right: auto;
+        font-size: 15px;
+    }
+
+    .services-table-one-doctor {
+        width: 90%;
+        left: 5%;
+        right: auto;
+        font-size: 15px;
+    }
+
+    .services-table-link {
+        background-color: rgba(0, 0, 0, 0);
+        margin-top: 10px;
+    }
+
+    .services-table-link:hover {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        transition: all 0.3s linear;
+    }
+
+    .table-button-mobile {
+        background-color: aquamarine;
+        border-radius: 15px;
+        padding: 5px;
+    }
+
+    .list-item-mobile {
+        background-color: aquamarine;
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+        border-radius: 15px;
+    }
+
+    .table-button-mobile:hover {
+        background-color: #7fbbf5;
+        color: white;
+        text-decoration: white;
+        transition: all 0.3s linear;
+    }
+
+    .list-item-mobile:hover {
+        background-color: #7fbbf5;
+        color: white;
+        transition: all 0.3s linear;
+    }
+}

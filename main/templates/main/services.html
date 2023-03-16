@@ -17,11 +17,11 @@
         </tr>
             {% for service in services %}
                 <tr>
-                <td class="services-td"><p><a class="services-table-link" href="{{ service.get_absolute_url }}">{{ service.name }}</a></p></td>
+                <td class="services-td"><div class="table-button-mobile"><p><a class="services-table-link" href="{{ service.get_absolute_url }}">{{ service.name }}</a></p></div></td>
                 <td class="services-td"><p>{{ service.price }}</p></td>
                 <td class="services-td"><ul style="list-style: none">
                 {% for doctor in service.doctor_set.all %}
-                    <li><p><a class="services-table-link" href="{{ doctor.get_absolute_url }}">{{ doctor.name }}</a></p></li>
+                    <li class="list-item-mobile"><div class="table-button-mobile"><p><a class="services-table-link" href="{{ doctor.get_absolute_url }}">{{ doctor.name }}</a></p></div></li>
                 {% endfor %}</ul></td></tr>
             {% endfor %}
         </table>

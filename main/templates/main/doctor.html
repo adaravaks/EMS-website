@@ -22,7 +22,7 @@
         </tr>
             {% for service in services %}
                 <tr>
-                <td class="services-td-one-doctor"><p><a class="services-table-link" href="{{ service.get_absolute_url }}">{{ service.name }}</a></p></td>
+                <td class="services-td"><div class="table-button-mobile"><p><a class="services-table-link" href="{{ service.get_absolute_url }}">{{ service.name }}</a></p></div></td>
                 <td class="services-td-one-doctor"><p>{{ service.price }}</p></td></tr>
             {% endfor %}
         </table>
