@@ -15,7 +15,7 @@
             {% for review in reviews %}
                 <li class="review-list-item">
                     <p class="review-paragraph">Автор отзыва: {{ review.author }}</p>
-                    <p class="review-paragraph">Врач: <a href="{{ review.doctor_mentioned.get_absolute_url }}">{{ review.doctor_mentioned }}</a></p>
+                    <p class="review-paragraph">Врач: <a class="reviews-doctor-link" href="{{ review.doctor_mentioned.get_absolute_url }}">{{ review.doctor_mentioned }}</a></p>
                     <p class="review-paragraph-main">{{ review.text }}</p>
                     <p class="review-paragraph">Источник: <a href="{{ review.source }}">{{ review.source }}</a></p>
                 </li>

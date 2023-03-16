@@ -13,9 +13,9 @@
             {% for doctor in doctors %}
                 <div class="doctor-box"><a href="{{ doctor.get_absolute_url }}" class="doctor-link">
                     <img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture">
-                    <p>{{ doctor.name }}</p>
-                    <p>{{ doctor.speciality }}</p>
-                    <p>Стаж: {{ doctor.experience }}</p>
+                    <h3 class="important-text">{{ doctor.name }}</h3>
+                    <h3>{{ doctor.speciality }}</h3>
+                    <h3>Стаж: {{ doctor.experience }}</h3>
                 </a></div>
             {% endfor %}
         {% else %}

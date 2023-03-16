@@ -23,7 +23,7 @@ class Service(models.Model):
 
 
 class Doctor(models.Model):
-    name = models.CharField('Имя, фамилия и отчество врача', max_length=150, unique=True)
+    name = models.CharField('Фамилия, имя и отчество врача', max_length=150, unique=True)
     picture = models.FileField('Фото врача', upload_to='doctors_pictures/%Y/%m/%d')
     speciality = models.CharField('Специализация', max_length=300)
     experience = models.CharField('Стаж работы', max_length=100)
