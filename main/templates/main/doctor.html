@@ -7,13 +7,20 @@
 
 
 {% block content %}
-    <h1 class="main-header">{{ doctor.name }}</h1>
-    <img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture-single">
-    <span>Специализация: {{ doctor.speciality }}</span><br>
-    <span>Стаж работы: {{ doctor.experience }}</span><br>
-    <span>Образование: {{ doctor.education }}</span><br>
-    <span>Повышение квалификации: {{ doctor.additional_qualification }}</span><br>
-        <p>Услуги доктора:</p>
+    <h1 class="main-header important-text">{{ doctor.name }}</h1>
+    <div class="doctor-box-single">
+        <img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture-single">
+        <div class="doctor-text-about">
+            <div><p class="important-text">Специализация:</p> <p class="doctor-info-paragraph">{{ doctor.speciality }}</p></div>
+            <br>
+            <div><p class="important-text">Стаж работы:</p> <p class="doctor-info-paragraph">{{ doctor.experience }}</p></div>
+            <br>
+            <div><p class="important-text">Образование:</p> <p class="doctor-info-paragraph">{{ doctor.education }}</p></div>
+            <br>
+            <div><p class="important-text">Повышение квалификации:</p> <p class="doctor-info-paragraph">{{ doctor.additional_qualification }}</p></div>
+        </div>
+    </div>
+        <h2 class="important-text" style="margin-top: 30px; margin-bottom: 5px;">Услуги доктора:</h2>
         {% if services %}
             <table class="services-table-one-doctor">
         <tr>
@@ -29,7 +36,7 @@
         {% else %}
             <p>Доктор пока не оказывает услуг</p>
         {% endif %}
-        <span>Отзывы:</span>
+        <h2 class="important-text" style="margin-top: 30px; margin-bottom: 5px;">Отзывы:</h2>
         <div class="review-box">
             {% if reviews %}
                 <ul class="review-list">
