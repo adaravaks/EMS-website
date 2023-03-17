@@ -50,3 +50,15 @@
         transition: all 0.3s linear;
     }
 }
+
+@media screen and (max-width: 400px) {
+    .services-table {
+        width: 100%;
+        left: 0;
+        font-size: 13px;
+    }
+
+    .services-td li {
+        margin: 5px !important;
+    }
+}

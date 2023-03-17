@@ -1,6 +1,14 @@
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 700px) {
     .footer-logo {
     width: 100%;
     height: auto;
+    }
+
+    .footer-info-container {
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
     }
 }
