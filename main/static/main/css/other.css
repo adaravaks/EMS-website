@@ -19,7 +19,7 @@ body, html {
     width: 1500px;
     height: 600px;
     padding: 3px;
-    margin: 2% auto 1% auto;
+    margin: 0.5% auto 1% auto;
     background-color: rgb(5, 238, 181);
 }
 
@@ -72,4 +72,14 @@ body, html {
     color: #000000;
     text-shadow: 1px 1px 4px #0ebba2;
     font-weight: bold;
+}
+
+.less-important-text-clickable {
+    color: #000000;
+    text-shadow: 1px 1px 6px #0ebba2;
+}
+
+.less-important-text-unclickable {
+    color: #000000;
+    text-shadow: 0 0 1px #0ebba2;
 }

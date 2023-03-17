@@ -98,8 +98,47 @@
     {% endblock %}
 </div>
 <footer class="footer">
+    <h2 class="important-text" style="text-align: center; padding-top: 10px;">Клиника на карте</h2>
     <div class="map">
         <div id="map"></div>
+    </div>
+    <div class="footer-info-container">
+        <div class="footer-section">
+            <h2 class="important-text">Главное на сайте</h2>
+            <ul class="footer-list">
+                <li><a class="less-important-text-clickable" href="{% url 'services' %}">Услуги</a></li>
+                <li><a class="less-important-text-clickable" href="{% url 'doctors' %}">Врачи</a></li>
+                <li><a class="less-important-text-clickable" href="{% url 'reviews' %}">Отзывы</a></li>
+                <li><a class="less-important-text-clickable" href="{% url 'promotions' %}">Акции</a></li>
+                <li><a class="less-important-text-clickable" href="{% url 'about' %}">О нас</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h2 class="important-text">Связь с нами</h2>
+            <ul class="footer-list">
+                <li><div>Адрес клиники: <p class="less-important-text-unclickable">г. Бердск, ул. Ленина, 23 В, офис 2</p></div></li>
+                <li><div>Контактный номер:<p class="less-important-text-unclickable">+7 (913) 948-42-37</p></div></li>
+                <li><div>Другой контактный номер: <p class="less-important-text-unclickable">+7 (923) 740-49-19</p></div></li>
+                <li><div>Электронная почта: <p class="less-important-text-unclickable">test@test.test</p></div></li>
+                <li><div>Метрика сайта: <p class="less-important-text-clickable" style="margin-top: 2px;"><a class="" href="https://metrika.yandex.ru/dashboard?id=92758078">перейти</a></p></div></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h2 class="important-text">Документы</h2>
+            <ul class="footer-list">
+                <li><a class="less-important-text-clickable" href="{% url 'papers' %}">Лицензия</a></li>
+                <li><a class="less-important-text-clickable" href="{% url 'papers' %}">Реквизиты и сведения о регистрации</a></li>
+                <li><a class="less-important-text-clickable" href="{% url 'papers' %}">Политика обработки персональных данных</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h2 class="important-text">Мы в соцсетях</h2>
+            <ul class="footer-list">
+                <li><a class="less-important-text-clickable" href="https://vk.com/amrklinika.berdsk?w=club217651776">Вконтакте</a></li>
+                <li><a class="less-important-text-clickable" href="#">Инстаграм</a></li>
+                <li><a class="less-important-text-clickable" href="#">Одноклассники</a></li>
+            </ul>
+        </div>
     </div>
     <div class="footer-logo-container">
         <a href="/"><img class="footer-logo" src="{% static 'main/images/footer/logo_extended.png' %}" alt="Эффективные медицинские решения"></a>
