@@ -1,6 +1,7 @@
 @media screen and (max-width: 1000px) {
     .doctor-picture {
-        width: 200px;
+        width: 80%;
+        max-width: 400px;
     }
 
     .doctor-picture-single {

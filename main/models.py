@@ -36,6 +36,10 @@ class Doctor(models.Model):
         self.slug = cyrillic_slugify(self.name)
         super(Doctor, self).save(*args, **kwargs)
 
+    def update(self, *args, **kwargs):
+        self.slug = cyrillic_slugify(self.name)
+        super(Doctor, self).save(*args, **kwargs)
+
     def get_absolute_url(self):
         return reverse('doctor', kwargs={'name_slug': self.slug})
 
