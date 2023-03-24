@@ -67,17 +67,9 @@ def contacts(request):
 
 def reviews(request):
     our_reviews = Review.objects.all()
-    relations_dict = {}
-    relations_list = []
-    for review in our_reviews:
-        for doctor_id in review.doctors_mentioned.all():
-            relations_list.append(doctor_id)
-        relations_dict[review.pk] = relations_list
-        relations_list = []
     context = {
         'title': 'ЭМР - отзывы пациентов',
         'reviews': our_reviews,
-        'relations_dict': relations_dict,
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/reviews.html', context=context)

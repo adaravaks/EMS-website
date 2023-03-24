@@ -69,6 +69,18 @@ class Review(models.Model):
         verbose_name_plural = 'Отзывы'
 
 
+class CarouselPicture(models.Model):
+    picture = models.FileField(upload_to='carousel_pictures', verbose_name='Изображение')
+    description = models.CharField('Короткое описание', max_length=150)
+
+    def __str__(self):
+        return f'Изображение для слайд-шоу: {self.description}'
+
+    class Meta:
+        verbose_name = 'Изображение для слайд-шоу'
+        verbose_name_plural = 'Изображения для слайд-шоу'
+
+
 def cyrillic_slugify(string):
     list_of_words_raw = string.strip().split(' ')
     list_of_words = []
