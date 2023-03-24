@@ -1,4 +1,5 @@
 {% load static %}
+{% load main_tags %}
 <!doctype html>
 <html lang="ru">
 <head>
@@ -65,7 +66,7 @@
                 <li><a href="{% url 'services' %}" class="navbar-text-link">Услуги</a></li>
                 <li><a href="{% url 'doctors' %}" class="navbar-text-link">Врачи</a></li>
                 <li><a href="{% url 'promotions' %}" class="navbar-text-link">Акции</a></li>
-                <li><a href="{% url 'contacts' %}" class="navbar-text-link contacts">Контакты</a></li>
+                <li><a href="{% url 'contacts' %}" class="navbar-text-link">Контакты</a></li>
                 <li><a href="{% url 'reviews' %}" class="navbar-text-link">Отзывы</a></li>
                 <li><a href="{% url 'papers' %}" class="navbar-text-link">Документы</a></li>
             </ul>

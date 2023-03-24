@@ -1,4 +1,5 @@
 {% extends 'main/base.html' %}
+{% load main_tags %}
 {% block title %}
 {{ title }}
 {% endblock %}
@@ -15,7 +16,11 @@
             {% for review in reviews %}
                 <li class="review-list-item">
                     <p class="review-paragraph">Автор отзыва: {{ review.author }}</p>
-                    <p class="review-paragraph">Врач: <a class="reviews-doctor-link" href="{{ review.doctor_mentioned.get_absolute_url }}">{{ review.doctor_mentioned }}</a></p>
+                    <p class="review-paragraph">Врачи:
+                        {% for doctor_id in review.doctors_mentioned.all %}
+                            <a class="reviews-doctor-link" href="{{ doctor_id|get_doctor_absolute_url_by_name }}">{{ doctor_id }}</a>
+                        {% endfor %}
+                    </p>
                     <p class="review-paragraph-main">{{ review.text }}</p>
                     <p class="review-paragraph">Источник: <a href="{{ review.source }}">{{ review.source }}</a></p>
                 </li>

@@ -67,9 +67,17 @@ def contacts(request):
 
 def reviews(request):
     our_reviews = Review.objects.all()
+    relations_dict = {}
+    relations_list = []
+    for review in our_reviews:
+        for doctor_id in review.doctors_mentioned.all():
+            relations_list.append(doctor_id)
+        relations_dict[review.pk] = relations_list
+        relations_list = []
     context = {
         'title': 'ЭМР - отзывы пациентов',
-        'reviews':our_reviews,
+        'reviews': our_reviews,
+        'relations_dict': relations_dict,
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/reviews.html', context=context)
@@ -91,7 +99,10 @@ def doctor(request, name_slug):
     for service in their_services_raw:
         their_services.append(Service.objects.get(pk=service.service_id))
 
-    their_reviews = Review.objects.filter(doctor_mentioned=the_doctor.name)
+    their_reviews = []
+    for review in Review.objects.all():
+        if the_doctor in review.doctors_mentioned.all():
+            their_reviews.append(review)
     context = {
         'doctor': the_doctor,
         'services': their_services,

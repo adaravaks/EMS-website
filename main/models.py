@@ -52,13 +52,13 @@ class Doctor(models.Model):
 
 
 class Review(models.Model):
-    doctor_mentioned = models.ForeignKey(Doctor, on_delete=models.CASCADE, to_field='name', verbose_name='Доктор, о котором идёт речь')
+    doctors_mentioned = models.ManyToManyField(Doctor, verbose_name='Доктора, о которых идёт речь')
     source = models.CharField('Ссылка на источник', max_length=300)
     author = models.CharField('Автор', max_length=150)
     text = models.TextField('Отзыв')
 
     def __str__(self):
-        return f'Отзыв на врача {self.doctor_mentioned} от пользователя {self.author}'
+        return f'Отзыв от пользователя {self.author}'
 
     @staticmethod
     def get_absolute_url():
