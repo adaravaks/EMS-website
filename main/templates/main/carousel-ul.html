@@ -1,0 +1,6 @@
+<ul data-slides>
+    <li class="slide" data-active><img src="{{ slides_dict.active_slide.picture.url }}" alt="{{ slides_dict.active_slide.picture.description }}"></li>
+    {% for carousel_picture in slides_dict.inactive_slides %}
+        <li class="slide"><img src="{{ carousel_picture.picture.url }}" alt="{{ carousel_picture.picture.description }}"></li>
+    {% endfor %}
+</ul>
