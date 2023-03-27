@@ -45,6 +45,7 @@
                         <p class="review-paragraph">Автор отзыва: {{ review.author }}</p>
                         <p class="review-paragraph-main">{{ review.text }}</p>
                         <p class="review-paragraph">Источник: <a href="{{ review.source }}">{{ review.source }}</a></p>
+                        <p class="review-paragraph">Дата добавления: {{ review.creation_time }}</p>
                     </li>
                 {% endfor %}
                 </ul>

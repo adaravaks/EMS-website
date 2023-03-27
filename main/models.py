@@ -56,6 +56,7 @@ class Review(models.Model):
     source = models.CharField('Ссылка на источник', max_length=300)
     author = models.CharField('Автор', max_length=150)
     text = models.TextField('Отзыв')
+    creation_time = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return f'Отзыв от пользователя {self.author}'
