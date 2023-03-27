@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from rest_framework import generics
 from decouple import config
 from .models import Doctor, Review, Service
+from .serializers import DoctorsSerializer
 
 
 def index(request):
@@ -103,3 +105,8 @@ def doctor(request, name_slug):
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
     }
     return render(request, 'main/doctor.html', context=context)
+
+
+class DoctorsAPIView(generics.ListAPIView):
+    queryset = Doctor.objects.all()
+    serializer_class = DoctorsSerializer
