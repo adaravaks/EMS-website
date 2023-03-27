@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics
 from decouple import config
-from .models import Doctor, Review, Service
-from .serializers import DoctorsSerializer
+from .models import Doctor, Review, Service, CarouselPicture
+from .serializers import DoctorsSerializer, ServicesSerializer, ReviewsSerializer, CarouselPicturesSerializer
 
 
 def index(request):
@@ -110,3 +110,18 @@ def doctor(request, name_slug):
 class DoctorsAPIView(generics.ListAPIView):
     queryset = Doctor.objects.all()
     serializer_class = DoctorsSerializer
+
+
+class ServicesAPIView(generics.ListAPIView):
+    queryset = Service.objects.all()
+    serializer_class = ServicesSerializer
+
+
+class ReviewsAPIView(generics.ListAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewsSerializer
+
+
+class CarouselPicturesAPIView(generics.ListAPIView):
+    queryset = CarouselPicture.objects.all()
+    serializer_class = CarouselPicturesSerializer
