@@ -9,7 +9,7 @@
 {% block content %}
     <h1 class="main-header important-text">{{ doctor.name }}</h1>
     <div class="doctor-box-single">
-        <img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture-single">
+        <a href="{{ doctor.picture.url }}" data-fancybox data-caption="{{ doctor.name }}"><img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture-single"></a>
         <div class="doctor-text-about">
             <div><p class="important-text">Специализация:</p> <p class="doctor-info-paragraph">{{ doctor.speciality }}</p></div>
             <br>
