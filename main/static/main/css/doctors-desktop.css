@@ -53,11 +53,6 @@
     margin-bottom: 20px;
 }
 
-.doctor-box-single:hover {
-    background-color: #9bc7ef;
-    transition: all 0.3s linear;
-}
-
 .doctor-text-about {
     font-size: 24px;
     text-align: left;

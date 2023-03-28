@@ -83,3 +83,12 @@ body, html {
     color: #000000;
     text-shadow: 0 0 1px #0ebba2;
 }
+
+.clickable-image {
+    border: solid 4px rgba(9, 243, 188, 0);
+    transition: all 0.2s linear;
+}
+
+.clickable-image:hover {
+    border: solid 4px rgba(9, 243, 188, 1);
+}
