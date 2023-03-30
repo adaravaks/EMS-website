@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block yandex-map-apikey %}{{ yandex_map_apikey }}{% endblock %}
+
+
+{% block content %}
+    <h1 class="main-header">API сайта</h1>
+    <div class="index-info-block">
+        <p class="less-important-text-unclickable index-text">Да, у сайта есть свой API</p>
+        <p class="less-important-text-unclickable index-text">Вот его функции:</p><br> <!-- TODO: Don't forget to set proper domain name everywhere below -->
+        <p class="less-important-text-unclickable index-text">Отправив GET-запрос на <a class="services-table-link" href="{% url 'doctors-api' %}">[Будущий домен сайта]{% url 'doctors-api' %}</a> вы получите JSON-список, содержащий имена, URL-адреса изображений, специальности, стаж, информацию об образовании и дополнительную квалификацию всех докторов</p>
+        <br>
+        <p class="less-important-text-unclickable index-text">Отправив GET-запрос на <a class="services-table-link" href="{% url 'services-api' %}">[Будущий домен сайта]{% url 'services-api' %}</a> вы получите JSON-список, содержащий названия и цены всех услуг</p>
+        <br>
+        <p class="less-important-text-unclickable index-text">Отправив GET-запрос на <a class="services-table-link" href="{% url 'reviews-api' %}">[Будущий домен сайта]{% url 'reviews-api' %}</a> вы получите JSON-список, содержащий имена авторов, тексты, даты публикации и ссылки на источник всех отзывов</p>
+        <br>
+        <p class="less-important-text-unclickable index-text">Отправив GET-запрос на <a class="services-table-link" href="{% url 'carousel-images-api' %}">[Будущий домен сайта]{% url 'carousel-images-api' %}</a> вы получите JSON-список, содержащий краткие описания и URL-адреса всех изображений из слайд-шоу</p>
+    </div>
+{% endblock %}

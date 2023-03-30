@@ -13,5 +13,6 @@ urlpatterns = [
     path('отзывы', views.reviews, name='reviews'),
     path('документы', views.papers, name='papers'),
     path('наши-врачи/<str:name_slug>', views.doctor, name='doctor'),
-    path('услуги/<str:service_slug>', views.service, name='service')
+    path('услуги/<str:service_slug>', views.service, name='service'),
+    path('api', views.api, name='api')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

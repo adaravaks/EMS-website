@@ -20,8 +20,8 @@ from main.views import DoctorsAPIView, ServicesAPIView, ReviewsAPIView, Carousel
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('api/v1/doctorslist', DoctorsAPIView.as_view()),
-    path('api/v1/serviceslist', ServicesAPIView.as_view()),
-    path('api/v1/reviewslist', ReviewsAPIView.as_view()),
-    path('api/v1/carouselpictureslist', CarouselPicturesAPIView.as_view())
+    path('api/v1/doctorslist', DoctorsAPIView.as_view(), name='doctors-api'),
+    path('api/v1/serviceslist', ServicesAPIView.as_view(), name='services-api'),
+    path('api/v1/reviewslist', ReviewsAPIView.as_view(), name='reviews-api'),
+    path('api/v1/carouselpictureslist', CarouselPicturesAPIView.as_view(), name='carousel-images-api')
 ]

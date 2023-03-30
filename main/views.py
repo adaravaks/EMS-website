@@ -107,6 +107,13 @@ def doctor(request, name_slug):
     return render(request, 'main/doctor.html', context=context)
 
 
+def api(request):
+    context = {
+        'title': 'ЭМР - API сайта',
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY')
+    }
+    return render(request, 'main/api.html', context=context)
+
 class DoctorsAPIView(generics.ListAPIView):
     queryset = Doctor.objects.all()
     serializer_class = DoctorsSerializer
