@@ -1,0 +1,28 @@
+.api-info-block {
+    position: relative;
+    left: 20%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #dbf4fd;
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.7s linear;
+    margin-bottom: 20px;
+}
+
+.api-link {
+    text-decoration: none;
+    color: black;
+    background-color: aquamarine;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+}
+
+.api-link:hover {
+    background-color: #7fbbf5;
+    color: white;
+    transition: all 0.3s linear;
+}
