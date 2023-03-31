@@ -61,7 +61,9 @@ body, html {
 }
 
 #scroll-top-button:hover {
-    background-color: #09f3bc;
+    background-color: #7fbbf5;
+    color: white;
+    transition: all 0.3s linear;
 }
 
 .text-align-right {

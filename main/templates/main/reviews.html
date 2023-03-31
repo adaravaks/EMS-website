@@ -16,7 +16,7 @@
             {% for review in reviews %}
                 <li class="review-list-item">
                     <p class="review-paragraph">Автор отзыва: {{ review.author }}</p>
-                    <p class="review-paragraph">Врачи:
+                    <p class="review-paragraph">Врач:
                         {% for doctor_id in review.doctors_mentioned.all %}
                             <a class="reviews-doctor-link" href="{{ doctor_id|get_doctor_absolute_url_by_name }}">{{ doctor_id }}</a>
                         {% endfor %}
