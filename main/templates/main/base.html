@@ -154,7 +154,7 @@
         <div class="title"><p class="important-text">Мы вам перезвоним 😉</p></div>
         <button data-close-button class="close-button"><i class="fa-solid fa-xmark"></i></button>
     </div>
-    <div class="modal-body"><p class="less-important-text-unclickable">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci animi asperiores assumenda autem consequuntur delectus deleniti doloremque eius esse et harum illo ipsa labore laborum minima minus neque nobis perferendis porro, quaerat qui quisquam quo repellat similique sit temporibus voluptas. Corporis facere facilis iure laborum nisi, nulla ratione tempore!</p></div>
+    <div class="modal-body">{% block call_request_form %}{% endblock %}</div>
 </div>
 <div id="overlay"></div>
 <script src="{% static 'main/js/main-carousel.js' %}" type="text/javascript"></script>

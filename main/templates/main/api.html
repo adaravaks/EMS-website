@@ -20,3 +20,13 @@
         <p class="less-important-text-unclickable index-text">Отправив GET-запрос на <a class="api-link" href="{% url 'carousel-images-api' %}">[Будущий домен сайта]{% url 'carousel-images-api' %}</a> вы получите JSON-список, содержащий краткие описания и URL-адреса всех изображений из слайд-шоу</p>
     </div>
 {% endblock %}
+
+{% block call_request_form %}
+    <form method="post">
+    {% csrf_token %}
+    <div class="">{{ form.phone_number }}</div> <br>
+    {{ form.wishes }} <br>
+    <button class="form-submit-button" style="" type="submit">Отправить</button>
+    <span>{{ error }}</span>
+    </form>
+{% endblock %}

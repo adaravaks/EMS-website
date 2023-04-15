@@ -84,7 +84,7 @@ class CarouselPicture(models.Model):
 
 class CallRequest(models.Model):
     phone_number = models.CharField('Номер телефона', max_length=20)
-    wishes = models.CharField('Пожелания', max_length=150)
+    wishes = models.CharField('Пожелания', max_length=2000)
 
     def __str__(self):
         return f'Запрос звонка на {self.phone_number}'

@@ -1,3 +1,7 @@
+::placeholder {
+
+}
+
 .modal {
     position: fixed;
     top: 50%;
@@ -59,4 +63,42 @@
 #overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+
+.form-field {
+    position: relative;
+    max-width: 90%;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    border: solid 2px #09f3bc;
+
+}
+
+.form-field:hover {
+    border-color: #7fbbf5;
+    transition: all 0.3s linear;
+}
+
+.form-submit-button {
+    border: none;
+    outline: none;
+    background-color: aquamarine;
+    color: black;
+    cursor: default;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s linear;
+}
+
+.form-submit-button:hover {
+    cursor: pointer;
+    background-color: #7fbbf5;
+    color: white;
+    transition: all 0.3s linear;
 }
