@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="{% static 'main/css/index-mobile.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'main/css/api-desktop.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'main/css/api-mobile.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'main/css/modal.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'main/css/other.css' %}" type="text/css">
     <script src="https://kit.fontawesome.com/488146a138.js" crossorigin="anonymous"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={% block yandex-map-apikey %}{% endblock %}" type="text/javascript"></script>
@@ -147,7 +148,17 @@
     <p class="footer-text">Вся указанная информация не является публичной офертой</p>
 </footer>
 <button onclick="scrollTopFunction()" id="scroll-top-button" title="Наверх">Наверх</button>
+<button id="call-request-button" data-modal-target="#modal" title="Заказать звонок">Заказать звонок</button>
+<div class="modal" id="modal">
+    <div class="modal-header">
+        <div class="title"><p class="important-text">Мы вам перезвоним 😉</p></div>
+        <button data-close-button class="close-button"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body"><p class="less-important-text-unclickable">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci animi asperiores assumenda autem consequuntur delectus deleniti doloremque eius esse et harum illo ipsa labore laborum minima minus neque nobis perferendis porro, quaerat qui quisquam quo repellat similique sit temporibus voluptas. Corporis facere facilis iure laborum nisi, nulla ratione tempore!</p></div>
+</div>
+<div id="overlay"></div>
 <script src="{% static 'main/js/main-carousel.js' %}" type="text/javascript"></script>
+<script src="{% static 'main/js/call-request.js' %}" type="text/javascript"></script>
 <script>Fancybox.bind("[data-fancybox]", {});</script>
 </body>
 </html>

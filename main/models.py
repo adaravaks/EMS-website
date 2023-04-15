@@ -82,6 +82,18 @@ class CarouselPicture(models.Model):
         verbose_name_plural = 'Изображения для слайд-шоу'
 
 
+class CallRequest(models.Model):
+    phone_number = models.CharField('Номер телефона', max_length=20)
+    wishes = models.CharField('Пожелания', max_length=150)
+
+    def __str__(self):
+        return f'Запрос звонка на {self.phone_number}'
+
+    class Meta:
+        verbose_name = 'Запрос звонка'
+        verbose_name_plural = 'Запросы звонков'
+
+
 def cyrillic_slugify(string):
     list_of_words_raw = string.strip().split(' ')
     list_of_words = []
