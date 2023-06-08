@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block yandex-map-apikey %}{{ yandex_map_apikey }}{% endblock %}
+
+
+{% block content %}
+    <h1 class="main-header">Реквизиты и сведения о регистрации</h1>
+    <p class="unbounded-text">Общество с ограниченной ответственностью «Эффективные медицинские решения»</p>
+    <p class="unbounded-text">633010, г.Бердск, Новосибирская область, ул.Ленина ,дом 23 В, офис 2. тел:+79137348558</p>
+    <p class="unbounded-text">ИНН 5473006015; КПП 547301001, ОГРН 1225400039303</p>
+    <p class="unbounded-text">р/с 40702810513130003017 Ф-Л «Центральный» Банка ВТБ ПАО г. Москва</p>
+    <p class="unbounded-text">БИК: 044525411 Корр. счёт: 30101810145250000411</p>
+    <p class="unbounded-text">Директор Каурдаков Сергей Борисович, на основании устава</p>
+{% endblock %}
+
+{% block call_request_form %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.phone_number }} <br>
+    {{ form.wishes }} <br>
+    <button type="submit" class="form-submit-button">Отправить</button>
+    <span>{{ error }}</span>
+    </form>
+{% endblock %}

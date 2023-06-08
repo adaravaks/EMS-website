@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block yandex-map-apikey %}{{ yandex_map_apikey }}{% endblock %}
+
+
+{% block content %}
+    <h1 class="main-header">{{ header }}</h1>
+    {% if services %}
+        <table class="subcategory-table">
+        <tr>
+            <th class="subcategory-th">Название</th>
+            <th class="subcategory-th">Биоматериал</th>
+            <th class="subcategory-th">Время ожидания (в рабочих днях без учёта дня забора)</th>
+            <th class="subcategory-th">Цена, руб</th>
+        </tr>
+            {% for service in services %}
+                <tr>
+                <td class="subcategory-td"><p>{{ service.name }}</p></td>
+                <td class="subcategory-td"><p>{{ service.biomaterial }}</p></td>
+                <td class="subcategory-td"><p>{{ service.time }}</p></td>
+                <td class="subcategory-td"><p>{{ service.price }}</p></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Услуги временно не оказываются</p>
+    {% endif %}
+{% endblock %}
+
+{% block call_request_form %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.phone_number }} <br>
+    {{ form.wishes }} <br>
+    <button type="submit" class="form-submit-button">Отправить</button>
+    <span>{{ error }}</span>
+    </form>
+{% endblock %}

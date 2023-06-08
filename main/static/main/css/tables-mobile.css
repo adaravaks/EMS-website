@@ -51,6 +51,24 @@
     }
 }
 
+@media screen and (max-width: 550px) {
+    .subcategory-table {
+        width: 100%;
+        left: 0;
+        font-size: 13px;
+    }
+
+    .subcategory-th {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+
+    .subcategory-td {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .services-table {
         width: 100%;

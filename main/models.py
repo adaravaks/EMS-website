@@ -3,9 +3,13 @@ from django.urls import reverse
 
 
 class Service(models.Model):
-    name = models.CharField('Название процедуры', max_length=300)
-    price = models.IntegerField('Цена, руб.')
-    slug = models.SlugField('Ссылка, которая будет вести к услуге. Это поле заполняется само, не нужно его трогать. Вписав сюда что-то, вы ничего не испортите, но и лучше от этого не станет.', blank=True, allow_unicode=True)
+    name = models.CharField('Название процедуры', max_length=3000, null=True)
+    category = models.CharField('Категория', max_length=1000)
+    subcategory = models.CharField('Подкатегория', null=True, max_length=2000)
+    subcategory_slug = models.CharField('Слаг подкатегории', null=True, max_length=2000)
+    biomaterial = models.CharField('Биоматериал', null=True, max_length=2000)
+    time = models.CharField('Срок выполнения (рабочие дни) (день забора не учитывается)', null=True, max_length=2000)
+    price = models.CharField('Цена, руб.', null=True, max_length=2000)
 
     def save(self, *args, **kwargs):
         self.slug = cyrillic_slugify(self.name)
@@ -29,7 +33,7 @@ class Doctor(models.Model):
     experience = models.CharField('Стаж работы', max_length=100)
     education = models.TextField('Образование')
     additional_qualification = models.TextField('Повышение квалификации', blank=True)
-    services = models.ManyToManyField(Service, verbose_name='Услуги')
+    services = models.ManyToManyField(Service, verbose_name='Услуги', blank=True)
     slug = models.SlugField('Ссылка, которая будет вести к врачу. Это поле заполняется само, не нужно его трогать. Вписав сюда что-то, вы ничего не испортите, но и лучше от этого не станет.', blank=True, allow_unicode=True)
 
     def save(self, *args, **kwargs):

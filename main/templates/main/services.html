@@ -8,26 +8,11 @@
 
 {% block content %}
     <h1 class="main-header">Услуги и цены</h1>
-    {% if services %}
-        <table class="services-table">
-        <tr>
-            <th class="services-th">Название</th>
-            <th class="services-th">Цена, руб</th>
-            <th class="services-th"><a class="services-table-link" href="{% url 'doctors' %}">Проводящие доктора</a></th>
-        </tr>
-            {% for service in services %}
-                <tr>
-                <td class="services-td"><div class="table-button-mobile"><p><a class="services-table-link" href="{{ service.get_absolute_url }}">{{ service.name }}</a></p></div></td>
-                <td class="services-td"><p>{{ service.price }}</p></td>
-                <td class="services-td"><ul style="list-style: none">
-                {% for doctor in service.doctor_set.all %}
-                    <li class="list-item-mobile"><div class="table-button-mobile"><p><a class="services-table-link" href="{{ doctor.get_absolute_url }}">{{ doctor.name }}</a></p></div></li>
-                {% endfor %}</ul></td></tr>
-            {% endfor %}
-        </table>
-    {% else %}
-        <p>Услуги временно не оказываются</p>
-    {% endif %}
+    <div class="categories-container">
+        <p class="services-category-paragraph"><a class="services-category-link" href="{% url 'dental' %}">Стоматология</a></p>
+        <p class="services-category-paragraph"><a class="services-category-link" href="{% url 'usr' %}">УЗИ</a></p>
+        <p class="services-category-paragraph"><a class="services-category-link" href="{% url 'analyzes' %}">Анализы</a></p>
+    </div>
 {% endblock %}
 
 {% block call_request_form %}

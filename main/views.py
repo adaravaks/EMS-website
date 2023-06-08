@@ -68,6 +68,103 @@ def services(request):
     return render(request, 'main/services.html', context=context)
 
 
+def dental(request):
+    error = ''
+    if request.method == 'POST':
+        form = CallRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            error = 'Неверный ввод'
+
+    form = CallRequestForm()
+    our_services = Service.objects.filter(category='Стоматология')
+    context = {
+        'title': 'ЭМР - стоматология',
+        'services': our_services,
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/dental.html', context=context)
+
+
+def usr(request):
+    error = ''
+    if request.method == 'POST':
+        form = CallRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            error = 'Неверный ввод'
+
+    form = CallRequestForm()
+    our_services = Service.objects.filter(category='УЗИ')
+    context = {
+        'title': 'ЭМР - УЗИ',
+        'services': our_services,
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/usr.html', context=context)
+
+
+def analyzes(request):
+    error = ''
+    if request.method == 'POST':
+        form = CallRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            error = 'Неверный ввод'
+
+    form = CallRequestForm()
+    our_services = Service.objects.filter(category='Анализы')
+    subcategories = set()
+    subcategories_slugs = {}
+    for service in our_services:
+        subcategories.add(service.subcategory)
+        subcategories_slugs[service.subcategory] = service.subcategory_slug
+
+    context = {
+        'title': 'ЭМР - анализы',
+        'subcategories': sorted(subcategories),
+        'slugs': subcategories_slugs,
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/analyzes.html', context=context)
+
+
+def subcategory(request, subcategory_slug):
+    error = ''
+    if request.method == 'POST':
+        form = CallRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            error = 'Неверный ввод'
+
+    form = CallRequestForm()
+    analyzes_required = Service.objects.filter(subcategory_slug=subcategory_slug)
+
+    context = {
+        'title': 'ЭМР - анализы',
+        'header': analyzes_required[0].subcategory,
+        'services': analyzes_required,
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/subcategory.html', context=context)
+
+
 def service(request, service_slug):
     error = ''
     if request.method == 'POST':
@@ -194,6 +291,26 @@ def papers(request):
     return render(request, 'main/papers.html', context=context)
 
 
+def requisites(request):
+    error = ''
+    if request.method == 'POST':
+        form = CallRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            error = 'Неверный ввод'
+
+    form = CallRequestForm()
+    context = {
+        'title': 'ЭМР - реквизиты',
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/requisites.html', context=context)
+
+
 def doctor(request, name_slug):
     error = ''
     if request.method == 'POST':
@@ -246,6 +363,7 @@ def api(request):
         'error': error
     }
     return render(request, 'main/api.html', context=context)
+
 
 class DoctorsAPIView(generics.ListAPIView):
     queryset = Doctor.objects.all()

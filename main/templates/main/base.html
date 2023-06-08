@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="{% static 'main/css/index-mobile.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'main/css/api-desktop.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'main/css/api-mobile.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'main/css/papers-desktop.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'main/css/modal.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'main/css/other.css' %}" type="text/css">
     <script src="https://kit.fontawesome.com/488146a138.js" crossorigin="anonymous"></script>
@@ -121,7 +122,7 @@
                 <li><div>Адрес клиники: <p class="less-important-text-unclickable">г. Бердск, ул. Ленина, 23 В, офис 2</p></div></li>
                 <li><div>Контактный номер:<p class="less-important-text-unclickable">+7 (913) 948-42-37</p></div></li>
                 <li><div>Другой контактный номер: <p class="less-important-text-unclickable">+7 (923) 740-49-19</p></div></li>
-                <li><div>Электронная почта: <p class="less-important-text-unclickable">test@test.test</p></div></li>
+                <li><div>Электронная почта: <p class="less-important-text-unclickable">ems.clinica@mail.ru</p></div></li>
                 <li><div>Метрика сайта: <p class="less-important-text-clickable" style="margin-top: 2px;"><a class="" href="https://metrika.yandex.ru/dashboard?id=92758078">перейти</a></p></div></li>
             </ul>
         </div>
@@ -129,7 +130,7 @@
             <h2 class="important-text">Документы</h2>
             <ul class="footer-list">
                 <li><a class="less-important-text-clickable" href="{% url 'papers' %}">Лицензия</a></li>
-                <li><a class="less-important-text-clickable" href="{% url 'papers' %}">Реквизиты и сведения о регистрации</a></li>
+                <li><a class="less-important-text-clickable" href="{% url 'requisites' %}">Реквизиты и сведения о регистрации</a></li>
                 <li><a class="less-important-text-clickable" href="{% url 'papers' %}">Политика обработки персональных данных</a></li>
             </ul>
         </div>

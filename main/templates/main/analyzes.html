@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block yandex-map-apikey %}{{ yandex_map_apikey }}{% endblock %}
+
+
+{% block content %}
+    <h1 class="main-header">Анализы</h1>
+    <p class="unbounded-text">Мы делаем очень много различных видов анализов (более 600 штук!)<br>Какая подкатегория вас интересует?</p>
+    <div class="subcategories-container">
+        {% for subcategory, slug in slugs.items %}
+            <a class="subcategory-button" href="{% url 'subcategory' slug %}">{{ subcategory }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block call_request_form %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.phone_number }} <br>
+    {{ form.wishes }} <br>
+    <button type="submit" class="form-submit-button">Отправить</button>
+    <span>{{ error }}</span>
+    </form>
+{% endblock %}

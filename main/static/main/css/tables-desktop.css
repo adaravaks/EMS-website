@@ -7,6 +7,15 @@
     font-size: 18px;
 }
 
+.subcategory-table {
+    background-color: black;
+    right: 10%;
+    width: 80%;
+    position: relative;
+    left: 10%;
+    font-size: 18px;
+}
+
 .services-table-one-doctor {
     background-color: black;
     width: 50%;
@@ -37,7 +46,19 @@
     border-radius: 0 !important;
 }
 
+.subcategory-th {
+    background-color: aquamarine;
+    padding: 15px;
+    transition: all 0.3s linear;
+    border-radius: 0 !important;
+}
+
 .services-td {
+    background-color: #eafcf0;
+    padding: 10px;
+}
+
+.subcategory-td {
     background-color: #eafcf0;
     padding: 10px;
 }
@@ -49,4 +70,67 @@
 
 .services-td li {
     margin: 15px;
+}
+
+.subcategories-container {
+    position: relative;
+    left: 15%;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 70%;
+    justify-content: space-between;
+}
+
+.subcategory-button {
+    font-size: 20px;
+    max-width: 100%;
+    padding: 10px;
+    margin: 20px;
+    background-color: aquamarine;
+    color: black;
+    border-radius: 10px;
+    transition: all 0.7s linear;
+    text-decoration: none;
+}
+
+.subcategory-button:hover {
+    background-color: #7fbbf5;
+    color: white;
+    transition: all 0.3s linear;
+}
+
+.categories-container {
+    position: relative;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%
+}
+
+.services-category-paragraph {
+    max-width: 100%;
+    margin-top: 40px;
+    padding: 15px;
+    background-color: aquamarine;
+    font-size: 20px;
+    color: black;
+    border-radius: 10px;
+    transition: all 0.7s linear;
+}
+
+.services-category-paragraph:hover {
+    background-color: #7fbbf5;
+    transition: all 0.3s linear;
+}
+
+.services-category-paragraph:hover a {
+    color: white;
+    transition: all 0.3s linear;
+}
+
+.services-category-link {
+    text-decoration: none;
+    transition: all 0.7s linear;
+    color: black;
 }
