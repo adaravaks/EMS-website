@@ -117,6 +117,7 @@
     color: black;
     border-radius: 10px;
     transition: all 0.7s linear;
+    text-align: center;
 }
 
 .services-category-paragraph:hover {
@@ -133,4 +134,5 @@
     text-decoration: none;
     transition: all 0.7s linear;
     color: black;
+    padding: 7px 8% 7px 8%;
 }

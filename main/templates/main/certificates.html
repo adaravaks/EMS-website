@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block yandex-map-apikey %}{{ yandex_map_apikey }}{% endblock %}
+
+
+{% block content %}
+    <h1 class="main-header">Сертификаты наших врачей</h1>
+    <div class="certificates-container">
+        {% for certificate in certificates %}
+            <img class="certificate-image clickable-image"  data-fancybox="gallery" data-caption="{{ certificate.description }}" src="{{ certificate.picture.url }}" alt="{{ certificate.description }}">
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block call_request_form %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.phone_number }} <br>
+    {{ form.wishes }} <br>
+    <button type="submit" class="form-submit-button">Отправить</button>
+    <span>{{ error }}</span>
+    </form>
+{% endblock %}

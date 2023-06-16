@@ -40,7 +40,7 @@ nav {
 
 .menu li a.navbar-text-link:hover {
     background: rgba(117, 177, 245, 0.7);
-    border-radius: 35%;
+    border-radius: 15px;
     transition: 0.3s;
     color: white;
 }

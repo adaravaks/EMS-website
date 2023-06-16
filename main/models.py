@@ -98,6 +98,30 @@ class CallRequest(models.Model):
         verbose_name_plural = 'Запросы звонков'
 
 
+class Certificate(models.Model):
+    picture = models.FileField(upload_to='certificates', verbose_name='Фото/скан сертификата')
+    description = models.CharField('Короткое описание (о чём сертификат?)', max_length=1000)
+
+    def __str__(self):
+        return f'Сертификат: {self.description}'
+
+    class Meta:
+        verbose_name = 'Сертификат'
+        verbose_name_plural = 'Сертификаты'
+
+
+class IndexPicture(models.Model):
+    picture = models.FileField(upload_to='index_pictures', verbose_name='Фото/скан сертификата')
+    description = models.CharField('Короткое описание (что на фотке?)', max_length=1000)
+
+    def __str__(self):
+        return f'Фото: {self.description}'
+
+    class Meta:
+        verbose_name = 'Фото для главной страницы'
+        verbose_name_plural = 'Фото для главной страницы'
+
+
 def cyrillic_slugify(string):
     list_of_words_raw = string.strip().split(' ')
     list_of_words = []

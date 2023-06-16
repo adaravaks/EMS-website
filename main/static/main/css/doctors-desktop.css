@@ -23,23 +23,24 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-self: center;
     background-color: #dbf4fd;
     padding: 10px;
     border-radius: 15px;
     transition: all 0.7s linear;
     margin-bottom: 20px;
-}
-
-.doctor-link {
-    text-decoration: none;
     color: black;
     font-weight: bold;
 }
 
-.doctor-box:hover {
+.doctor-link {
+    text-decoration: none;
+}
+
+/*.doctor-box:hover {
     background-color: #9bc7ef;
     transition: all 0.3s linear;
-}
+}*/
 
 .doctor-box-single {
     width: 80%;

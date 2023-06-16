@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from rest_framework import generics
 from decouple import config
-from .models import Doctor, Review, Service, CarouselPicture
+from .models import Doctor, Review, Service, CarouselPicture, Certificate, IndexPicture
 from .serializers import DoctorsSerializer, ServicesSerializer, ReviewsSerializer, CarouselPicturesSerializer
 from .forms import CallRequestForm
 
@@ -17,10 +17,12 @@ def index(request):
             error = 'Неверный ввод'
 
     form = CallRequestForm()
+    photos = IndexPicture.objects.all()
     context = {
         'title': 'ЭМР - эффективные медицинские решения',
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
         'form': form,
+        'photos': photos,
         'error': error
     }
     return render(request, 'main/index.html', context=context)
@@ -271,7 +273,7 @@ def reviews(request):
     return render(request, 'main/reviews.html', context=context)
 
 
-def papers(request):
+def certificates(request):
     error = ''
     if request.method == 'POST':
         form = CallRequestForm(request.POST)
@@ -282,13 +284,15 @@ def papers(request):
             error = 'Неверный ввод'
 
     form = CallRequestForm()
+    all_certificates = Certificate.objects.all()
     context = {
         'title': 'ЭМР - документы',
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'certificates': all_certificates,
         'form': form,
         'error': error
     }
-    return render(request, 'main/papers.html', context=context)
+    return render(request, 'main/certificates.html', context=context)
 
 
 def requisites(request):
