@@ -70,13 +70,10 @@
                 <li class="navbar-logo-li"><a href="{% url 'index' %}" class="navbar-logo-link">
                     <img src="{% static 'main/images/logo.png' %}" class="navbar-logo" alt="Наш логотип">
                 </a></li>
-                <!-- <li><a href="{% url 'about' %}" class="navbar-text-link">О нас</a></li> -->
                 <li><a href="{% url 'services' %}" class="navbar-text-link">Услуги</a></li>
                 <li><a href="{% url 'doctors' %}" class="navbar-text-link">Врачи</a></li>
-                <!-- <li><a href="{% url 'promotions' %}" class="navbar-text-link">Акции</a></li> -->
-                <!-- <li><a href="{% url 'contacts' %}" class="navbar-text-link">Контакты</a></li> -->
                 <li><a href="{% url 'reviews' %}" class="navbar-text-link">Отзывы</a></li>
-                <li><a href="{% url 'certificates' %}" class="navbar-text-link">Сертификаты</a></li>
+                <li><a href="{% url 'certificates' %}" class="navbar-text-link">Сертификаты о квалификации врачей</a></li>
             </ul>
             <span class="toggle">☰</span>
         </label>
@@ -113,9 +110,6 @@
                 <li><a class="less-important-text-clickable" href="{% url 'services' %}">Услуги</a></li>
                 <li><a class="less-important-text-clickable" href="{% url 'doctors' %}">Врачи</a></li>
                 <li><a class="less-important-text-clickable" href="{% url 'reviews' %}">Отзывы</a></li>
-                <!-- <li><a class="less-important-text-clickable" href="{% url 'promotions' %}">Акции</a></li> -->
-                <!-- <li><a class="less-important-text-clickable" href="{% url 'about' %}">О нас</a></li> -->
-                <li><a class="less-important-text-clickable" href="{% url 'api' %}">API</a></li>
             </ul>
         </div>
         <div class="footer-section">
@@ -131,17 +125,13 @@
         <div class="footer-section">
             <h2 class="important-text">Документы</h2>
             <ul class="footer-list">
-                <!-- <li><a class="less-important-text-clickable" href="#">Лицензия</a></li> -->
                 <li><a class="less-important-text-clickable" href="{% url 'requisites' %}">Реквизиты и сведения о регистрации</a></li>
-                <!-- <li><a class="less-important-text-clickable" href="#">Политика обработки персональных данных</a></li> -->
             </ul>
         </div>
         <div class="footer-section">
             <h2 class="important-text">Мы в соцсетях</h2>
             <ul class="footer-list">
                 <li><a class="less-important-text-clickable" href="https://vk.com/amrklinika.berdsk?w=club217651776">ВКонтакте</a></li>
-                <!-- <li><a class="less-important-text-clickable" href="#">Инстаграм</a></li> -->
-                <!-- <li><a class="less-important-text-clickable" href="#">Одноклассники</a></li> -->
             </ul>
         </div>
     </div>

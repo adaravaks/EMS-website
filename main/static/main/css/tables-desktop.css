@@ -63,6 +63,11 @@
     padding: 10px;
 }
 
+.subcategory-td {
+    overflow-wrap: anywhere;
+    hyphens: auto;
+}
+
 .services-td-one-doctor {
     background-color: #eafcf0;
     padding: 20px;
@@ -78,14 +83,14 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 70%;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .subcategory-button {
     font-size: 20px;
     max-width: 100%;
     padding: 10px;
-    margin: 20px;
+    margin: 20px 5px 20px 5px;
     background-color: aquamarine;
     color: black;
     border-radius: 10px;

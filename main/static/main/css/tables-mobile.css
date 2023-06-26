@@ -53,7 +53,26 @@
     .categories-container {
     left: 15%;
     width: 70%
+    }
+
+    .subcategory-button {
+        font-size: 16px;
+    }
 }
+
+@media screen and (max-width: 800px) {
+    .subcategory-table {
+        font-size: 15px;
+        width: 90%;
+        left: 5%;
+        right: 5%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .subcategory-table {
+        font-size: 13px;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -83,5 +102,27 @@
 
     .services-td li {
         margin: 5px !important;
+    }
+
+    .subcategory-table {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .subcategory-table {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .subcategory-table {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .subcategory-table {
+        font-size: 8px;
     }
 }

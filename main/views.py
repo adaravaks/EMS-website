@@ -262,7 +262,7 @@ def reviews(request):
             error = 'Неверный ввод'
 
     form = CallRequestForm()
-    our_reviews = Review.objects.all()
+    our_reviews = Review.objects.all().order_by('creation_time')
     context = {
         'title': 'ЭМР - отзывы пациентов',
         'reviews': our_reviews,

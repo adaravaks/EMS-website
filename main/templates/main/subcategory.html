@@ -18,10 +18,10 @@
         </tr>
             {% for service in services %}
                 <tr>
-                <td class="subcategory-td"><p>{{ service.name }}</p></td>
-                <td class="subcategory-td"><p>{{ service.biomaterial }}</p></td>
-                <td class="subcategory-td"><p>{{ service.time }}</p></td>
-                <td class="subcategory-td"><p>{{ service.price }}</p></td>
+                <td class="subcategory-td">{{ service.name }}</td>
+                <td class="subcategory-td">{{ service.biomaterial }}</td>
+                <td class="subcategory-td">{{ service.time }}</td>
+                <td class="subcategory-td">{{ service.price }}</td>
                 </tr>
             {% endfor %}
         </table>

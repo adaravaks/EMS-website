@@ -21,6 +21,7 @@
 .index-image {
     margin-left: 20px;
     margin-right: 20px;
-    width: 40%;
+    width: 100%;
+    max-width: 500px;
     cursor: pointer;
 }

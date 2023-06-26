@@ -12,7 +12,7 @@
         {% if doctors %}
             {% for doctor in doctors %}
                 <div class="doctor-box">
-                    <img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture">
+                    <img src="{{ doctor.picture.url }}" alt="Фотография врача" class="doctor-picture clickable-image" data-fancybox data-caption="{{ doctor.name }}">
                     <h3 class="important-text">{{ doctor.name }}</h3>
                     <h3>{{ doctor.speciality }}</h3>
                 </div>
@@ -28,7 +28,7 @@
     {% csrf_token %}
     {{ form.phone_number }} <br>
     {{ form.wishes }} <br>
-    <button type="submit" class="">Отправить</button>
+    <button type="submit" class="form-submit-button">Отправить</button>
     <span>{{ error }}</span>
     </form>
 {% endblock %}

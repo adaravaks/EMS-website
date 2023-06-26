@@ -112,6 +112,7 @@ body, html {
 .clickable-image {
     border: solid 4px rgba(9, 243, 188, 0);
     transition: all 0.2s linear;
+    cursor: pointer;
 }
 
 .clickable-image:hover {
