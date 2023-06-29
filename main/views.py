@@ -114,6 +114,50 @@ def usr(request):
     return render(request, 'main/usr.html', context=context)
 
 
+def onco_mammo(request):
+    error = ''
+    if request.method == 'POST':
+        form = CallRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            error = 'Неверный ввод'
+
+    form = CallRequestForm()
+    our_services = Service.objects.filter(category='Онкология / Маммология')
+    context = {
+        'title': 'ЭМР - онкология и маммология',
+        'services': our_services,
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/onco-mammo.html', context=context)
+
+
+def cardiology(request):
+    error = ''
+    if request.method == 'POST':
+        form = CallRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            error = 'Неверный ввод'
+
+    form = CallRequestForm()
+    our_services = Service.objects.filter(category='Кардиология')
+    context = {
+        'title': 'ЭМР - кардиология',
+        'services': our_services,
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/cardiology.html', context=context)
+
+
 def analyzes(request):
     error = ''
     if request.method == 'POST':
@@ -262,7 +306,7 @@ def reviews(request):
             error = 'Неверный ввод'
 
     form = CallRequestForm()
-    our_reviews = Review.objects.all().order_by('creation_time')
+    our_reviews = Review.objects.all().order_by('-creation_time')
     context = {
         'title': 'ЭМР - отзывы пациентов',
         'reviews': our_reviews,
