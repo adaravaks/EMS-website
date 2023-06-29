@@ -5,18 +5,23 @@ from django.urls import reverse
 class Service(models.Model):
     name = models.CharField('Название процедуры', max_length=3000, null=True)
     category = models.CharField('Категория', max_length=1000)
-    subcategory = models.CharField('Подкатегория', null=True, max_length=2000)
-    subcategory_slug = models.CharField('Слаг подкатегории', null=True, max_length=2000)
-    biomaterial = models.CharField('Биоматериал', null=True, max_length=2000)
-    time = models.CharField('Срок выполнения (рабочие дни) (день забора не учитывается)', null=True, max_length=2000)
+    subcategory = models.CharField('Подкатегория (только для анализов)', null=True, blank=True, max_length=2000)
+    subcategory_slug = models.CharField('Слаг подкатегории (только для анализов, оставьте пустым — поле заполняется само)', null=True, blank=True, max_length=2000)
+    biomaterial = models.CharField('Биоматериал (только для анализов)', null=True, blank=True, max_length=2000)
+    time = models.CharField('Срок выполнения в рабочих днях без учёта дня забора (только для анализов)', null=True, blank=True, max_length=2000)
     price = models.CharField('Цена, руб.', null=True, max_length=2000)
 
     def save(self, *args, **kwargs):
-        self.slug = cyrillic_slugify(self.name)
+        self.subcategory_slug = cyrillic_slugify(self.subcategory) if self.subcategory else ''
         super(Service, self).save(*args, **kwargs)
 
-    def get_absolute_url(self):
-        return reverse('service', kwargs={'service_slug': self.slug})
+    def update(self, *args, **kwargs):
+        self.subcategory_slug = cyrillic_slugify(self.subcategory) if self.subcategory else ''
+        super(Service, self).save(*args, **kwargs)
+
+    @staticmethod
+    def get_absolute_url():
+        return reverse('services')
 
     def __str__(self):
         return self.name
@@ -30,11 +35,9 @@ class Doctor(models.Model):
     name = models.CharField('Фамилия, имя и отчество врача', max_length=150, unique=True)
     picture = models.FileField('Фото врача', upload_to='doctors_pictures/%Y/%m/%d')
     speciality = models.CharField('Специализация', max_length=300)
-    experience = models.CharField('Стаж работы', max_length=100)
-    education = models.TextField('Образование')
-    additional_qualification = models.TextField('Повышение квалификации', blank=True)
-    services = models.ManyToManyField(Service, verbose_name='Услуги', blank=True)
-    slug = models.SlugField('Ссылка, которая будет вести к врачу. Это поле заполняется само, не нужно его трогать. Вписав сюда что-то, вы ничего не испортите, но и лучше от этого не станет.', blank=True, allow_unicode=True)
+    experience = models.CharField('(пока не используется на сайте) Стаж работы', max_length=100, blank=True)
+    education = models.TextField('(пока не используется на сайте) Образование', blank=True)
+    slug = models.SlugField('(пока не используется на сайте) Ссылка, которая будет вести к врачу. Это поле заполняется само, не нужно его трогать. Вписав сюда что-то, вы ничего не испортите, но и лучше от этого не станет.', blank=True, allow_unicode=True)
 
     def save(self, *args, **kwargs):
         self.slug = cyrillic_slugify(self.name)
@@ -123,12 +126,12 @@ class IndexPicture(models.Model):
 
 
 def cyrillic_slugify(string):
-    list_of_words_raw = string.strip().split(' ')
+    list_of_words_raw = string.strip(', -/').split(' ')
     list_of_words = []
     for index in range(len(list_of_words_raw)):
         if len(list_of_words_raw[index]) > 0:
             list_of_words.append(list_of_words_raw[index])
     func_slug = ''
     for word in list_of_words:
-        func_slug += word + '-'
-    return func_slug.strip('-').lower()
+        func_slug += word.strip(", -/()'") + '-'
+    return func_slug.strip('-()').lower()
