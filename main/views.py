@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from rest_framework import generics
 from decouple import config
-from .models import Doctor, Review, Service, CarouselPicture, Certificate, IndexPicture
+from .models import Doctor, Review, Service, CarouselPicture, Certificate, IndexPicture, NewsPost
 from .serializers import DoctorsSerializer, ServicesSerializer, ReviewsSerializer, CarouselPicturesSerializer
 from .forms import CallRequestForm
 
@@ -46,6 +46,50 @@ def about(request):
         'error': error
     }
     return render(request, 'main/about-us.html', context=context)
+
+
+def news(request):
+    error = ''
+    if request.method == 'POST':
+        form = CallRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            error = 'Неверный ввод'
+
+    form = CallRequestForm()
+    news = NewsPost.objects.all().order_by('-addition_time')
+    context = {
+        'title': 'ЭМР - новости',
+        'news': news,
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/news.html', context=context)
+
+
+def news_post(request, title_slug):
+    error = ''
+    if request.method == 'POST':
+        form = CallRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            error = 'Неверный ввод'
+
+    form = CallRequestForm()
+    post = NewsPost.objects.get(slug=title_slug)
+    context = {
+        'title': f'ЭМР - {post.title.lower()}',
+        'post': post,
+        'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/news-post.html', context=context)
 
 
 def services(request):

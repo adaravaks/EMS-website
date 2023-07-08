@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block yandex-map-apikey %}{{ yandex_map_apikey }}{% endblock %}
+
+
+{% block content %}
+    <h1 class="main-header">Новости</h1>
+    <div class="news-container">
+        {% for post in news %}
+            <div class="news-post-box">
+                <img class="clickable-image news-image" data-fancybox data-caption="{{ post.title }}" src="{{ post.picture.url }}" alt="{{ post.title }}">
+                <div class="news-post-content">
+                    <div class="news-post-text">
+                        <h2 class="important-text" style="margin-bottom: 10px;">{{ post.title }}</h2>
+                        <p class="news-post-paragraph less-important-text-unclickable">{% autoescape off %}{{ post.text | truncatewords:50 }}{% endautoescape %}</p>
+                    </div>
+                    <div class="news-post-info">
+                        <p class="less-important-text-unclickable" style="font-size: 18px">Добавлено {{ post.addition_time }}</p>
+                        <a class="news-post-button" href="{{ post.get_absolute_url }}">Перейти к новости</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block call_request_form %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.phone_number }} <br>
+    {{ form.wishes }} <br>
+    <button type="submit" class="form-submit-button">Отправить</button>
+    <span>{{ error }}</span>
+    </form>
+{% endblock %}

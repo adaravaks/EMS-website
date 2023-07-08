@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block yandex-map-apikey %}{{ yandex_map_apikey }}{% endblock %}
+
+
+{% block content %}
+    <h1 class="main-header">{{ post.title }}</h1>
+    <div class="news-container">
+        <div class="news-post-box">
+            <p class="news-post-paragraph less-important-text-unclickable" style="margin-top: 15px;">
+                <img class="clickable-image post-image" data-fancybox data-caption="{{ post.title }}" src="{{ post.picture.url }}" alt="{{ post.title }}">
+                {% autoescape off %}{{ post.text }}{% endautoescape %}
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block call_request_form %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.phone_number }} <br>
+    {{ form.wishes }} <br>
+    <button type="submit" class="form-submit-button">Отправить</button>
+    <span>{{ error }}</span>
+    </form>
+{% endblock %}

@@ -11,6 +11,16 @@
             <a href="/"><img class="header-logo" src="{% static 'main/images/logo_extended_header.png' %}" alt="Эффективные медицинские решения"></a>
     </div>
     <div class="index-info-block">
+        <p class="less-important-text-unclickable" style="font-size: 20px; word-break: break-word">Добро пожаловать в клинику «ЭМР»!<br>
+            Клиника «ЭМР» – это современный многопрофильный центр для всей семьи.<br>
+            У нас представлен широкий спектр услуг в области стоматологии, УЗИ, онкологии, маммологии, кардиологии и анализов<br><br>
+⠀           Главные принципы, на которых основана работа клиники:<br>
+            — Индивидуальный и комплексный подход<br>
+            — Высококвалифицированные специалисты<br>
+            — Современное оборудование и оснащение<br>
+            — Доступные цены<br><br>
+            Вот несколько фотографий из нашей клиники:
+        </p>
         {% for photo in photos %}
             <img class="index-image clickable-image" data-fancybox="gallery" data-caption="{{ photo.description }}" src="{{ photo.picture.url }}" alt="{{ photo.description }}" width="300px">
         {% endfor %}

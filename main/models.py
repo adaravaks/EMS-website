@@ -2,6 +2,32 @@ from django.db import models
 from django.urls import reverse
 
 
+class NewsPost(models.Model):
+    title = models.CharField('Заголовок', max_length=1000)
+    picture = models.FileField('Картинка в тему', upload_to='news_pictures')
+    text = models.TextField('Текст новости')
+    slug = models.CharField('Слаг (оставьте пустым — поле заполнится само)', max_length=1000, blank=True)
+    addition_time = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = cyrillic_slugify(self.title)
+        super(NewsPost, self).save(*args, **kwargs)
+
+    def update(self, *args, **kwargs):
+        self.slug = cyrillic_slugify(self.title)
+        super(NewsPost, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('news-post', kwargs={'title_slug': cyrillic_slugify(self.title)})
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+
+
 class Service(models.Model):
     name = models.CharField('Название процедуры', max_length=3000, null=True)
     category = models.CharField('Категория', max_length=1000)
