@@ -24,6 +24,19 @@
                 </div>
             </div>
         {% endfor %}
+        <div class="pagination-container">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="pagination-button">Предыдущая страница</a>
+            {% endif %}
+
+            <p class="less-important-text-unclickable" style="font-size: 20px">
+                Вы на {{ page_obj.number }} странице из {{ page_obj.paginator.num_pages }}
+            </p>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }} " class="pagination-button">Следующая страница</a>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
 

@@ -16,4 +16,8 @@
         height: auto;
         margin-bottom: 15px;
     }
+
+    .pagination-container {
+        flex-direction: column;
+    }
 }

@@ -4,6 +4,7 @@ from decouple import config
 from .models import Doctor, Review, Service, CarouselPicture, Certificate, IndexPicture, NewsPost
 from .serializers import DoctorsSerializer, ServicesSerializer, ReviewsSerializer, CarouselPicturesSerializer
 from .forms import CallRequestForm
+from django.core.paginator import Paginator
 
 
 def index(request):
@@ -60,9 +61,15 @@ def news(request):
 
     form = CallRequestForm()
     news = NewsPost.objects.all().order_by('-addition_time')
+
+    paginator = Paginator(news, 1)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     context = {
         'title': 'ЭМР - новости',
-        'news': news,
+        'news': page_obj.object_list,
+        'page_obj': page_obj,
         'yandex_map_apikey': config('YANDEX_MAP_APIKEY'),
         'form': form,
         'error': error

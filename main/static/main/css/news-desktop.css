@@ -73,3 +73,27 @@
     color: white;
     transition: all 0.3s linear;
 }
+
+.pagination-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pagination-button {
+    font-size: 20px;
+    max-width: 100%;
+    padding: 10px;
+    margin: 20px 5px 20px 5px;
+    background-color: aquamarine;
+    color: black;
+    border-radius: 10px;
+    transition: all 0.7s linear;
+    text-decoration: none;
+}
+
+.pagination-button:hover {
+    background-color: #7fbbf5;
+    color: white;
+    transition: all 0.3s linear;
+}
